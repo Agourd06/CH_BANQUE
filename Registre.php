@@ -6,6 +6,7 @@ $error = array();
 if (isset($_POST['submit'])) {
     $fname = mysqli_real_escape_string($conn, $_POST['firstname']);
     $lname = mysqli_real_escape_string($conn, $_POST['lastname']);
+    $username = mysqli_real_escape_string($conn, $_POST['username']);
 
     $password = $_POST['password'];
     $cpassword = $_POST['cpassword'];
@@ -25,10 +26,10 @@ if (isset($_POST['submit'])) {
 
         if (mysqli_stmt_num_rows($stmtRole) > 0) {
             // Role exists, proceed with user insertion
-            $insert = "INSERT INTO users (firstName, familyName, pw)
-                       VALUES (?, ?, ?)";
+            $insert = "INSERT INTO users (firstName, familyName, username, pw)
+                       VALUES (?, ?, ?, ?)";
             $stmtUser = mysqli_prepare($conn, $insert);
-            mysqli_stmt_bind_param($stmtUser, "sss", $fname, $lname, $pass);
+            mysqli_stmt_bind_param($stmtUser, "ssss", $fname, $lname, $username, $pass);
             mysqli_stmt_execute($stmtUser);
 
             // Get the inserted user's ID
@@ -56,6 +57,7 @@ if (isset($_POST['submit'])) {
 
 // ... (rest of your HTML code)
 ?>
+
 
 
 
@@ -110,7 +112,8 @@ if (!empty($error)) {
 ?>
                 <input type="text" name="firstname" required placeholder="Enter Your FirstName" class="outline-none     h-[3rem] p-[5px] w-[85%] rounded">
                 <input type="text" name="lastname" required placeholder="Enter Your LastName" class="outline-none     h-[3rem] p-[5px] w-[85%] rounded">
-                
+                <input type="text" name="username" required placeholder="Enter Your username" class="outline-none     h-[3rem] p-[5px] w-[85%] rounded">
+
                 <input type="password" name="password" required placeholder="Enter Your password" class="outline-none      h-[3rem] w-[85%] p-[5px] rounded">
                 <input type="password" name="cpassword" required placeholder="confirme Your password" class="outline-none     h-[3rem] w-[85%] p-[5px] rounded">
                 <div class="w-[85%]">

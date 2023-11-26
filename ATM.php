@@ -3,23 +3,15 @@
 
  
  // Handle Delete action
- if (isset($_POST['deleteagency']) && isset($_POST['delete'])) 
-    {
-     $id = $_POST['delete'];
- 
-     // Delete associated records in the 'agency' table
-     $deleteAdress = "DELETE FROM adress WHERE agencyId = $id";
-     if ($conn->query($deleteAdress) !== TRUE) {
-         echo "Error deleting address: " . $conn->error;
-     }
-     
-     // Delete the record from the 'agency' table
-     $deleteAgencies = "DELETE FROM agency WHERE agencyId = $id";
-     if ($conn->query($deleteAgencies) !== TRUE) {
-         echo "Error deleting agency: " . $conn->error;
-     }
-     
- }
+ if (isset($_POST['deleteATM']) && isset($_POST['delete'])) {
+    $id = $_POST['delete'];
+    // Delete associated records in the 'atm' table
+    $deleteATM = "DELETE FROM atm WHERE atmid = $id";
+    if ($conn->query($deleteATM) !== TRUE) {
+        echo "Error deleting ATM: " . $conn->error;
+    }
+}
+
  
 
  ?>
@@ -56,8 +48,8 @@
 
 
         <div class="flex justify-evenly items-center">
-   <h1 class="text-[55px] h-[10%] mb-[20px] text-center text-white">Agency</h1>
-   <a href="addagency.php" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded">Add Agency</a>
+   <h1 class="text-[55px] h-[10%] mb-[20px] text-center text-white">ATM</h1>
+   <a href="addATM.php" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded">Add ATM</a>
 
    </div>
         <?php
@@ -78,7 +70,7 @@
             }
 
             // Fetch data based on the selected bankid for 'agency'
-            $sql = "SELECT * FROM `agency` WHERE bankid = '$bankid'";
+            $sql = "SELECT * FROM atm WHERE bankid = '$bankid'";
             $result = $conn->query($sql);
 
             if ($result->num_rows > 0) {
@@ -86,28 +78,25 @@
                 echo '<thead>
                         <tr>
                             <th class="border-[2px] border-white border-solid w-[15%]">ID</th>
-                            <th class="border-[2px] border-white border-solid w-[15%]">Longtitude</th>
-                            <th class="border-[2px] border-white border-solid w-[15%]">Latitude</th>
-                            <th class="border-[2px] border-white border-solid w-[15%]">Agency Name</th>
-                            <th class="border-[2px] border-white border-solid w-[15%]">Bank ID</th>
+                            <th class="border-[2px] border-white border-solid w-[15%]">Adress</th>
+                            <th class="border-[2px] border-white border-solid w-[15%]">Bank Id</th>
                             <th class="border-[2px] border-white border-solid w-[15%]">Edit</th>
                             <th class="border-[2px] border-white border-solid w-[15%]">Delete</th>
                             <th class="border-[2px] border-white border-solid w-[15%]">Agences</th>
+                          
                         </tr>
                     </thead>';
                 while ($row = $result->fetch_assoc()) {
                     echo '<form action="transaction.php" method="post" class="h-[10vh] items-start">';
                     echo "<tr>
-                            <td class='border-[2px] border-white border-solid w-[15%]'>" . $row["agencyId"] . " </td>
-                            <td class='border-[2px] border-white border-solid w-[15%]'> " . $row["longitude"] . "</td>
-                            <td class='border-[2px] border-white border-solid w-[15%]'> " . $row["latitude"] . " </td>
-                            <td class='border-[2px] border-white border-solid w-[15%]'>" . $row["agencyname"] . "</td>
+                            <td class='border-[2px] border-white border-solid w-[15%]'>" . $row["atmId"] . " </td>
+                            <td class='border-[2px] border-white border-solid w-[15%]'> " . $row["adress"] . "</td>
                             <td class='border-[2px] border-white border-solid w-[15%]'>" . $row["bankId"] . "</td>
                            
                             <td class='border-[2px] border-white border-solid w-[15%]'>
-                            <form action='addagency.php' method='post' style='height:10vh; align-items:start;'>
-                            <input type='hidden' name='operation' value='" . $row["agencyId"]. "'>
-                            <input type='hidden' name='agencyid' value='" . $row["agencyId"]. "'>
+                            <form action='addATM.php' method='post' style='height:10vh; align-items:start;'>
+                            <input type='hidden' name='operation' value='" . $row["atmId"]. "'>
+                            <input type='hidden' name='atmid' value='" . $row["atmId"]. "'>
                             <input type='submit' class='height-[100%] cursor-pointer width-[100%] hover:bg-black bg-white hover:text-white text-black' name='editing' value='Edit'>
                         </form>
                         
@@ -115,14 +104,14 @@
                        
                                 <td class='border-[2px] border-white border-solid w-[30%]'>
                             <form action='agences.php' method='post' style='height:10vh; align-items:start;'>
-                                <input type='hidden' name='bankid' value='" . $row["agencyId"]. "'>
+                                <input type='hidden' name='bankid' value='" . $row["atmId"]. "'>
                                 <input type='submit' class='height-[100%] cursor-pointer width-[100%] hover:bg-black bg-white hover:text-white text-black' name='submit' value='Agences'>
                             </form>
                         </td>  
                            <td class='border-[2px] border-white border-solid w-[15%]'>
-                                <form action='agences.php' method='post' style='height:10vh; align-items:start;'>
-                                    <input type='hidden' name='delete' value='" . $row["agencyId"] . "'>
-                                    <input type='submit' class='height-[100%] cursor-pointer width-[100%] hover:bg-black bg-white hover:text-white text-black' name='deleteagency' value='Delete'>
+                                <form action='ATM.php' method='post' style='height:10vh; align-items:start;'>
+                                    <input type='hidden' name='delete' value='" . $row["atmId"] . "'>
+                                    <input type='submit' class='height-[100%] cursor-pointer width-[100%] hover:bg-black bg-white hover:text-white text-black' name='deleteATM' value='Delete'>
                                 </form>
                             </td>
                         </tr>";
@@ -134,52 +123,49 @@
         } else {
             // Handle the case when 'submit' and 'bankid' are not set (initial page load)
             // Fetch data for 'compts' table
-            $sqlall = "SELECT * FROM `agency`";
-            $result2 = $conn->query($sqlall);
+            $sqlATM = "SELECT * FROM atm";
+            $result2 = $conn->query($sqlATM);
         
             if ($result2->num_rows > 0) {
                 echo '<table class="leading-9  w-[100%] text-center h-[7vh] items-start text-white">';
                 echo '<thead>
-                        <tr>
-                            <th class="border-[2px] border-white border-solid w-[15%]">ID</th>
-                            <th class="border-[2px] border-white border-solid w-[15%]">Longitude</th>
-                            <th class="border-[2px] border-white border-solid w-[15%]">Latitude</th>
-                            <th class="border-[2px] border-white border-solid w-[15%]">Agency Name</th>
-                            <th class="border-[2px] border-white border-solid w-[15%]">Bank ID</th>
-                            <th class="border-[2px] border-white border-solid w-[15%]">Détails</th>
-                            <th class="border-[2px] border-white border-solid w-[15%]">Edit</th>
-                            <th class="border-[2px] border-white border-solid w-[15%]">Delete</th>
-                        </tr>
+                <tr>
+                <th class="border-[2px] border-white border-solid w-[15%]">ID</th>
+                <th class="border-[2px] border-white border-solid w-[15%]">Adress</th>
+                <th class="border-[2px] border-white border-solid w-[15%]">Bank Id</th>
+                <th class="border-[2px] border-white border-solid w-[15%]">Edit</th>
+                <th class="border-[2px] border-white border-solid w-[15%]">Delete</th>
+                <th class="border-[2px] border-white border-solid w-[15%]">Agences</th>
+              
+            </tr>
                     </thead>';
                 while ($row = $result2->fetch_assoc()) {
                 
                     echo "<tr>
-                            <td class='border-[2px] border-white border-solid w-[15%]'>" . $row["agencyId"] . " </td>
-                            <td class='border-[2px] border-white border-solid w-[15%]'> " . $row["longitude"] . "</td>
-                            <td class='border-[2px] border-white border-solid w-[15%]'> " . $row["latitude"] . " </td>
-                            <td class='border-[2px] border-white border-solid w-[15%]'>" . $row["agencyname"] . "</td>
-                            <td class='border-[2px] border-white border-solid w-[15%]'>" . $row["bankId"] . "</td>
+                    <td class='border-[2px] border-white border-solid w-[15%]'>" . $row["atmId"] . " </td>
+                    <td class='border-[2px] border-white border-solid w-[15%]'> " . $row["adress"] . "</td>
+                    <td class='border-[2px] border-white border-solid w-[15%]'>" . $row["bankId"] . "</td>
 
 
                             <form action='' method='post' class='h-[50vh] items-start'>
                             <td class='border-[2px] border-white border-solid w-[15%]'>
-                                <input type='hidden' name='compts_id' value='" . $row["agencyId"] . "'>
+                                <input type='hidden' name='compts_id' value='" . $row["atmId"] . "'>
                                 <input type='submit' name='submit' class='height-[80px] cursor-pointer w-[100%] hover:bg-black bg-white hover:text-white text-black ' value='transaction'>
                            
                                 </td>
                                 </form>
                             <td class='border-[2px] border-white border-solid w-[15%]'>
-                            <form action='addagency.php' method='post' style='height:10vh; align-items:start;'>
-                            <input type='hidden' name='operation' value='" . $row["agencyId"]. "'>
-                            <input type='hidden' name='agencyid' value='" . $row["agencyId"]. "'>
+                            <form action='addATM.php' method='post' style='height:10vh; align-items:start;'>
+                            <input type='hidden' name='operation' value='" . $row["atmId"]. "'>
+                            <input type='hidden' name='atmid' value='" . $row["atmId"]. "'>
                             <input type='submit' class='height-[100%] cursor-pointer width-[100%] hover:bg-black bg-white hover:text-white text-black' name='editing' value='Edit'>
                         </form>
                         
                             </td>
                             <td class='border-[2px] border-white border-solid w-[15%]'>
-                            <form action='agences.php' method='post' style='height:10vh; align-items:start;'>
-                                <input type='hidden' name='delete' value='" . $row["agencyId"] . "'>
-                                <input type='submit' class='height-[100%] cursor-pointer width-[100%] hover:bg-black bg-white hover:text-white text-black' name='deleteagency' value='Delete'>
+                            <form action='ATM.php' method='post' style='height:10vh; align-items:start;'>
+                                <input type='hidden' name='delete' value='" . $row["atmId"] . "'>
+                                <input type='submit' class='height-[100%] cursor-pointer width-[100%] hover:bg-black bg-white hover:text-white text-black' name='deleteATM' value='Delete'>
                             </form>
                         </td>
                         </tr>";

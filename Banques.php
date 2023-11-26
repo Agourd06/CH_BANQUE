@@ -9,7 +9,10 @@
      // Delete associated records in the 'agency' table
      $deleteAgencies = "DELETE FROM agency WHERE bankId = $id";
      $conn->query($deleteAgencies);
- 
+
+     $deleteATM = "DELETE FROM atm WHERE bankid = $id";
+      $conn->query($deleteATM);
+    
      // Delete the record from the 'bank' table
      $deleteBank = "DELETE FROM bank WHERE bankid = $id";
      $conn->query($deleteBank);
@@ -84,7 +87,7 @@
 
    
    <div class="flex justify-evenly items-center">
-   <h1 class="text-[55px] h-[10%] mb-[20px] text-center text-white">Agency</h1>
+   <h1 class="text-[55px] h-[10%] mb-[20px] text-center text-white">Banks</h1>
    <a href="addbank.php" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded">Add Banks</a>
 
    </div>
@@ -100,6 +103,7 @@
             <th class="border-[2px] border-white border-solid w-[15%]">Edit</th>
             <th class="border-[2px] border-white border-solid w-[15%]">Delete</th>
             <th class="border-[2px] border-white border-solid w-[15%]">Agences</th>
+            <th class="border-[2px] border-white border-solid w-[15%]">ATM</th>
         </tr>
     </thead>
     <tbody>
@@ -144,6 +148,12 @@
                             <input type='submit' class='height-[100%] cursor-pointer width-[100%] hover:bg-black bg-white hover:text-white text-black' name='submit' value='Agences'>
                         </form>
                     </td>
+                    <td class='border-[2px] border-white border-solid w-[30%]'>
+                    <form action='ATM.php' method='post' style='height:10vh; align-items:start;'>
+                        <input type='hidden' name='bankid' value='" . $row["bankid"]. "'>
+                        <input type='submit' class='height-[100%] cursor-pointer width-[100%] hover:bg-black bg-white hover:text-white text-black' name='submit' value='ATM'>
+                    </form>
+                </td>
                 </tr><br>";
             }
         } else {
