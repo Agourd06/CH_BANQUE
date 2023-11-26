@@ -105,7 +105,7 @@ if (isset($_POST['Deletes']) && isset($_POST['bankid'])) {
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
 
-                
+                $id=$row["bankid"];
                 echo "<tr>
                     <td class='border-[2px] border-white border-solid w-[2%]'><img class='h-[72px] w-[240px]' src='" . $row["logo"] . "' alt=''></td>
                     <td class='border-[2px] border-white border-solid w-[35%]'>" . $row["name"] . "</td>
@@ -113,10 +113,13 @@ if (isset($_POST['Deletes']) && isset($_POST['bankid'])) {
                     <td class='border-[2px] border-white border-solid w-[30%]'>
                    
                     <form action='addbank.php' method='post' style='height:10vh; align-items:start;'>
+                    <input type='hidden' name='operation' value='" . $row["bankid"]. "'>
                     <input type='hidden' name='bankid' value='" . $row["bankid"]. "'>
-                    <input type='hidden' name='operation' value='" . $row["bankid"]. "'> <!-- Add this line for the operation -->
-                    <input type='submit' class='height-[100%] cursor-pointer width-[100%] hover:bg-black bg-white hover:text-white text-black' name='submit' value='Edite'>
+                    <input type='submit' class='height-[100%] cursor-pointer width-[100%] hover:bg-black bg-white hover:text-white text-black' name='editing' value='Edit'>
                 </form>
+                
+
+                
                 </td>
                 
                     <td class='border-[2px] border-white border-solid w-[30%]'>

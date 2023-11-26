@@ -8,13 +8,13 @@ if (isset($_POST['submit'])) {
     $codepostal = mysqli_real_escape_string($conn, $_POST['codepostal']);
     $phone = mysqli_real_escape_string($conn, $_POST['phone']);
     $email = mysqli_real_escape_string($conn, $_POST['email']); // Add this line to capture email
-    $user = $_POST['user'];
+   
     $agency = $_POST['agency'];;
 
 
     // Insert data into the address table
-    $insertAddress = "INSERT INTO adress (ville, quartier, rue, codepostal, tel, email, userid,agencyid) 
-                      VALUES ('$ville', '$quartier', '$rue', '$codepostal', '$phone', '$email', '$user', '$agency')";
+    $insertAddress = "INSERT INTO adress (ville, quartier, rue, codepostal, tel, email,agencyid) 
+                      VALUES ('$ville', '$quartier', '$rue', '$codepostal', '$phone', '$email',  '$agency')";
     mysqli_query($conn, $insertAddress);
 
     // Rest of your code...
@@ -66,23 +66,8 @@ if (isset($_POST['submit'])) {
                 <input type="text" name="codepostal" required placeholder="Code Postal" class="outline-none h-[3rem] p-[5px] w-[85%] rounded">
                 <input type="email" name="email" required placeholder="E-mail" class="outline-none h-[3rem] p-[5px] w-[85%] rounded">
                 <input type="tel" name="phone" required placeholder="Phone Number" class="outline-none h-[3rem] p-[5px] w-[85%] rounded">
-                <div class="w-[85%] flex gap-[50px]">
-                    <select name="user" id="" class="outline-none h-[40px] p-[5px] w-[50%] rounded">
-                        <?php
-                        // Query to get all users
-                        $userQuery = "SELECT userId, firstName, familyName FROM users";
-                        $userResult = mysqli_query($conn, $userQuery);
-
-                        // Check if there are users
-                        if (mysqli_num_rows($userResult) > 0) {
-                            while ($userRow = mysqli_fetch_assoc($userResult)) {
-                                echo '<option value="' . $userRow['userId'] . '">' . $userRow['firstName'] . ' ' . $userRow['familyName'] . '</option>';
-                            }
-                        } else {
-                            echo '<option value="" disabled>No users found</option>';
-                        }
-                        ?>
-                    </select>
+                <div class="w-[85%] ">
+         
                     <select name="agency" id="" class="outline-none h-[40px] p-[5px] w-[50%] rounded">
                         <?php
                         // Query to get all users
