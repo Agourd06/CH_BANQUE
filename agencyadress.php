@@ -12,15 +12,12 @@ if (isset($_POST['submit'])) {
     $agency = $_POST['agency'];;
 
 
-    // Insert data into the address table
     $insertAddress = "INSERT INTO adress (ville, quartier, rue, codepostal, tel, email,agencyid) 
                       VALUES ('$ville', '$quartier', '$rue', '$codepostal', '$phone', '$email',  '$agency')";
     mysqli_query($conn, $insertAddress);
 
-    // Rest of your code...
 
-    // For example, you can redirect to another page after successful insertion
-    header('location: Login.php');
+    header('location: agences.php');
     exit();
 }
 ?>

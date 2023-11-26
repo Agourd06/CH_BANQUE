@@ -1,22 +1,27 @@
 <?php
  @ include "DataBase.php";
-if (isset($_POST['Deletes']) && isset($_POST['bankid'])) {
-    $id = $_POST['bankid'];
 
-    // Delete the record from the 'bank' table where bankid matches
-    $deleting = "DELETE FROM bank WHERE bankid = $id";
-    
-    // Perform the query
-    $conn->query($deleting);
-       
-  
-    
-}
+ 
+ // Handle Delete action
+ if (isset($_POST['Deletes']) && isset($_POST['bankid'])) {
+     $id = $_POST['bankid'];
+ 
+     // Delete associated records in the 'agency' table
+     $deleteAgencies = "DELETE FROM agency WHERE bankId = $id";
+     $conn->query($deleteAgencies);
+ 
+     // Delete the record from the 'bank' table
+     $deleteBank = "DELETE FROM bank WHERE bankid = $id";
+     $conn->query($deleteBank);
+ }
+ 
+
+ ?>
+ 
 
 
 
 
-?>
 
 
 
@@ -130,7 +135,7 @@ if (isset($_POST['Deletes']) && isset($_POST['bankid'])) {
                 </td>
                 
                     <td class='border-[2px] border-white border-solid w-[30%]'>
-                        <form action='compts.php' method='post' style='height:10vh; align-items:start;'>
+                        <form action='agences.php' method='post' style='height:10vh; align-items:start;'>
                             <input type='hidden' name='bankid' value='" . $row["bankid"]. "'>
                             <input type='submit' class='height-[100%] cursor-pointer width-[100%] hover:bg-black bg-white hover:text-white text-black' name='submit' value='Agences'>
                         </form>
