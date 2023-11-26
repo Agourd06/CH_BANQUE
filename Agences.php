@@ -1,19 +1,29 @@
 <?php
-// Include the database connection file
-@include "DataBase.php";
+ @ include "DataBase.php";
 
-// Handle Delete action
-if (isset($_POST['Deletes']) && isset($_POST['bankid'])) {
-    $id = $conn->real_escape_string($_POST['bankid']);
+ 
+ // Handle Delete action
+ if (isset($_POST['deleteagency']) && isset($_POST['delete'])) 
+    {
+     $id = $_POST['delete'];
+ 
+     // Delete associated records in the 'agency' table
+     $deleteAdress = "DELETE FROM adress WHERE agencyId = $id";
+     if ($conn->query($deleteAdress) !== TRUE) {
+         echo "Error deleting address: " . $conn->error;
+     }
+     
+     // Delete the record from the 'agency' table
+     $deleteAgencies = "DELETE FROM agency WHERE agencyId = $id";
+     if ($conn->query($deleteAgencies) !== TRUE) {
+         echo "Error deleting agency: " . $conn->error;
+     }
+     
+ }
+ 
 
-    // Delete the record from the 'bank' table where bankid matches
-    $deleting = "DELETE FROM bank WHERE bankid = $id";
-
-    // Perform the query
-    $conn->query($deleting);
-}
-
-?>
+ ?>
+ 
 
 <!DOCTYPE html>
 <html lang="en">
@@ -33,7 +43,7 @@ if (isset($_POST['Deletes']) && isset($_POST['bankid'])) {
 </head>
 
 <body>
-    <section class="min-h-[95vh] w-[100vw] bg-black bg-cover">
+    <section class="min-h-[95vh] w-[100vw] bg-red-700 bg-cover">
         <header class="navbr w-[100%] h-[10vh]">
             <!-- Navigation bar goes here -->
             <nav class="h-[100%] flex gap-4 justify-center text-white items-center">
@@ -44,12 +54,8 @@ if (isset($_POST['Deletes']) && isset($_POST['bankid'])) {
             </nav>
         </header>
 
-        <?php
-        // Include the database connection file
-        @include "DataBase.php";
-        ?>
 
-        <h1 class="text-[55px] h-[10%] mb-[20px] text-center text-white">Gestionaire Bancaire</h1>
+        <h1 class="text-[55px] h-[10%] mb-[20px] text-center text-white">Agency</h1>
 
         <?php
         // Check if the 'submit' and 'bankid' are set, indicating that the form is submitted
@@ -87,19 +93,36 @@ if (isset($_POST['Deletes']) && isset($_POST['bankid'])) {
                         </tr>
                     </thead>';
                 while ($row = $result->fetch_assoc()) {
-                    echo '<form action="transaction.php" method="post" class="h-[50vh] items-start">';
+                    echo '<form action="transaction.php" method="post" class="h-[10vh] items-start">';
                     echo "<tr>
                             <td class='border-[2px] border-white border-solid w-[15%]'>" . $row["agencyId"] . " </td>
                             <td class='border-[2px] border-white border-solid w-[15%]'> " . $row["longitude"] . "</td>
                             <td class='border-[2px] border-white border-solid w-[15%]'> " . $row["latitude"] . " </td>
                             <td class='border-[2px] border-white border-solid w-[15%]'>" . $row["agencyname"] . "</td>
                             <td class='border-[2px] border-white border-solid w-[15%]'>" . $row["bankId"] . "</td>
+                            </form>
                             <td class='border-[2px] border-white border-solid w-[15%]'>
-                                <input type='submit' name='submit' class='height-[80px] cursor-pointer w-[100%] hover:bg-black bg-white hover:text-white text-black ' value='transaction'>
+                                <form action='this_page.php' method='post' style='height:10vh; align-items:start;'>
+                                    <input type='hidden' name='compts_id' value='" . $row["agencyId"] . "'>
+                                    <input type='submit' class='height-[100%] cursor-pointer width-[100%] hover:bg-black bg-white hover:text-white text-black' name='EditCompte' value='Edit'>
+                                </form>
+                            </td>
+                       
+                                <td class='border-[2px] border-white border-solid w-[30%]'>
+                            <form action='agences.php' method='post' style='height:10vh; align-items:start;'>
+                                <input type='hidden' name='bankid' value='" . $row["agencyId"]. "'>
+                                <input type='submit' class='height-[100%] cursor-pointer width-[100%] hover:bg-black bg-white hover:text-white text-black' name='submit' value='Agences'>
+                            </form>
+                        </td>  
+                           <td class='border-[2px] border-white border-solid w-[15%]'>
+                                <form action='agences.php' method='post' style='height:10vh; align-items:start;'>
+                                    <input type='hidden' name='delete' value='" . $row["agencyId"] . "'>
+                                    <input type='submit' class='height-[100%] cursor-pointer width-[100%] hover:bg-black bg-white hover:text-white text-black' name='deleteagency' value='Delete'>
+                                </form>
                             </td>
                         </tr>";
                 }
-                echo '</table></form>';
+                echo '</table>';
             } else {
                 echo "<p class='text-center'>0 results</p>";
             }
@@ -108,7 +131,7 @@ if (isset($_POST['Deletes']) && isset($_POST['bankid'])) {
             // Fetch data for 'compts' table
             $sqlall = "SELECT * FROM `agency`";
             $result2 = $conn->query($sqlall);
-        }
+        
             if ($result2->num_rows > 0) {
                 echo '<table class="leading-9  w-[100%] text-center h-[7vh] items-start text-white">';
                 echo '<thead>
@@ -142,17 +165,18 @@ if (isset($_POST['Deletes']) && isset($_POST['bankid'])) {
                                 </form>
                             </td>
                             <td class='border-[2px] border-white border-solid w-[15%]'>
-                                <form action='this_page.php' method='post' style='height:10vh; align-items:start;'>
-                                    <input type='hidden' name='compts_id' value='" . $row["agencyId"] . "'>
-                                    <input type='submit' class='height-[100%] cursor-pointer width-[100%] hover:bg-black bg-white hover:text-white text-black' name='DeleteCompte' value='Delete'>
-                                </form>
-                            </td>
+                            <form action='agences.php' method='post' style='height:10vh; align-items:start;'>
+                                <input type='hidden' name='delete' value='" . $row["agencyId"] . "'>
+                                <input type='submit' class='height-[100%] cursor-pointer width-[100%] hover:bg-black bg-white hover:text-white text-black' name='deleteagency' value='Delete'>
+                            </form>
+                        </td>
                         </tr>";
                 }
                 echo '</table></form>';
             } else {
                 echo "<p class='text-center'>0 results</p>";
             }
+        }
             $conn->close();
             ?>
     </section>

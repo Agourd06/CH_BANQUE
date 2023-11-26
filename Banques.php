@@ -84,6 +84,10 @@
 
    
    <div class="flex justify-evenly items-center">
+   <h1 class="text-[55px] h-[10%] mb-[20px] text-center text-white">Agency</h1>
+   <a href="addbank.php" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded">Add Banks</a>
+
+   </div>
 
 
 
