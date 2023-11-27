@@ -149,9 +149,9 @@
                                
 
                             <td class='border-[2px] border-black border-solid '>
-                            <form action='addaccounts.php' method='post' class='height-[100%] cursor-pointer width-[100%] hover:bg-black bg-white hover:text-white text-black'>
+                            <form action='addtransactions.php' method='post' class='height-[100%] cursor-pointer width-[100%] hover:bg-black bg-white hover:text-white text-black'>
                             <input type='hidden' name='operation' value='" . $row["transactionId"]. "'>
-                            <input type='hidden' name='transactionId' value='" . $row["transactionId"]. "'>
+                            <input type='hidden' name='transactionid' value='" . $row["transactionId"]. "'>
                             <input type='submit'  name='editing' value='Edit'>
                         </form>
                         

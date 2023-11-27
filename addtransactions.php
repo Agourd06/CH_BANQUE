@@ -9,7 +9,7 @@
 //     $rows = mysqli_fetch_assoc($stk_bnk_info);
 //     $agencyname = $rows["RIB"];
 //     $longtitud = $rows["balance"];
-    
+
 // }
 
 
@@ -18,7 +18,7 @@ if (isset($_POST['submit'])) {
 
     $operation = mysqli_real_escape_string($conn, $_POST['operation-type']);
     $amount = mysqli_real_escape_string($conn, $_POST['amount']);
-    
+
     $accountid = $_POST['accountId'];;
 
 
@@ -31,30 +31,28 @@ if (isset($_POST['submit'])) {
 
     header('location: transactions.php');
 }
-// if (isset($_POST['accountid']) && $_POST['editing'] === 'Edit') {
-//     // Retrieve agency details for editing
-//     $id = $_POST["accountid"];
-//     $accountinfo = "SELECT * FROM account WHERE accountid = $id";
-//     $stk_cmt_info = $conn->query($accountinfo);
-//     $rows = mysqli_fetch_assoc($stk_cmt_info);
+if (isset($_POST['transactionid']) && $_POST['editing'] === 'Edit') {
+    // Retrieve agency details for editing
+    $id = $_POST["transactionid"];
+    $transactioninfo = "SELECT * FROM transaction WHERE transactionId = $id";
+    $stk_trns_info = $conn->query($transactioninfo);
+    $rows = mysqli_fetch_assoc($stk_trns_info);
 
-//     // Populate variables with retrieved data
-//     $RIB = $rows["RIB"];
-//     $balance = $rows["balance"];
-    
-  
-// }
+    // Populate variables with retrieved data
+    $type = $rows["type"];
+    $amount = $rows["amount"];
+}
 
 
-// if (isset($_POST['edited'])) {
+if (isset($_POST['edited'])) {
 
-//     $RIB = mysqli_real_escape_string($conn, $_POST['RIB']);
-//     $balance = mysqli_real_escape_string($conn, $_POST['balance']);
-//     $id = $_POST['accountid'];
-//     $updateQuery = "UPDATE account SET RIB='$RIB', balance='$balance' WHERE accountid=$id";
-//     $conn->query($updateQuery);
-//     header('location: accounts.php');
-// }
+    $amount = mysqli_real_escape_string($conn, $_POST['amount']);
+    $type = mysqli_real_escape_string($conn, $_POST['operation-type']);
+    $id = $_POST['transactionid'];
+    $updateQuery = "UPDATE transaction SET type='$type', amount='$amount' WHERE transactionId=$id";
+    $conn->query($updateQuery);
+    header('location: transactions.php');
+}
 
 
 
@@ -86,22 +84,21 @@ if (isset($_POST['submit'])) {
 
                 <h1 class="md:text-[45px] text-[35px] text-gray-900 font-bold">Accounts</h1>
 
-                <input type="text" name="amount" placeholder=" Operation Amount"  value="<?php echo isset($RIB) ? $RIB : ''; ?>" class="outline-none bg-gray-200 border border-black/50 border-solid md:h-[3rem] h-[2rem] p-[10px] w-[85%] rounded">
+                <input type="text" name="amount" placeholder=" Operation Amount" value="<?php echo isset($amount) ? $amount : ''; ?>" class="outline-none bg-gray-200 border border-black/50 border-solid md:h-[3rem] h-[2rem] p-[10px] w-[85%] rounded">
 
                 <div class="w-[85%]">
-                            <select name="operation-type" id="" class="outline-none      h-[40px] p-[5px] w-[50%] rounded">
-                                <option value="Debit">Debit</option>
-                                <option value="Credit">Credit</option>
-                            </select>
-                        </div>
+                    <select name="operation-type" id="" class="outline-none h-[40px] p-[5px] w-[50%] rounded">
+                        <option value="Debit" <?php if (isset($_POST['transactionId']) && $_POST['editing'] === 'Edit') { echo ($type === 'Debit') ? 'selected' : ''; }?>>Debit</option>
+                        <option value="Credit" <?php if (isset($_POST['transactionId']) && $_POST['editing'] === 'Edit') { echo ($type === 'Credit') ? 'selected' : ''; }?>>Credit</option>
+                    </select>
+                </div>
 
                 <!-- Hidden input for agencyid -->
-                <input type="hidden" name="accountId" value="<?php echo isset($id) ? $id : ''; ?>">
 
                 <?php
-                    if (!isset($_POST['transactionid'])) {         
-                        echo '<select name="accountId"  class="outline-none h-[40px] p-[5px] w-[50%] rounded">'    ;   
-                    
+                if (!isset($_POST['transactionid'])) {
+                    echo '<select name="accountId"  class="outline-none h-[40px] p-[5px] w-[50%] rounded">';
+
                     // Query to get all banks
                     $accountQuery = "SELECT accountId, RIB FROM account";
                     $accountResult = mysqli_query($conn, $accountQuery);
@@ -116,14 +113,15 @@ if (isset($_POST['submit'])) {
                     } else {
                         echo '<option value="" disabled>No banks found</option>';
                     }
-                }else{
-                    echo 'You can change account RIB OR balance';
+                } else {
+                    echo 'You can change operation type or amount';
                 }
-                    ?>
+                ?>
                 </select>
+                <input type="hidden" name="transactionid" value="<?php echo isset($id) ? $id : ''; ?>">
 
                 <?php
-                if (isset($_POST['transactionId'])) {
+                if (isset($_POST['transactionid'])) {
                     echo '<input type="submit" name="edited" value="Edit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 w-[85%] rounded cursor-pointer">';
                 } else {
                     echo '<input type="submit" name="submit" value="Add Account" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 w-[85%] rounded cursor-pointer">';
