@@ -43,7 +43,7 @@
 </head>
 
 <body>
-    <section class="min-h-[95vh] w-[100vw] bg-red-700 bg-cover">
+    <section class="min-h-[95vh] w-[100vw] bg-white bg-cover">
         <header class="navbr w-[100%] h-[10vh]">
             <!-- Navigation bar goes here -->
             <nav class="h-[100%] flex gap-4 justify-center text-white items-center">
@@ -56,7 +56,7 @@
 
 
         <div class="flex justify-evenly items-center">
-   <h1 class="text-[55px] h-[10%] mb-[20px] text-center text-white">Agency</h1>
+   <h1 class="text-[55px] h-[10%] mb-[20px] text-center text-black">Agency</h1>
    <a href="addagency.php" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded">Add Agency</a>
 
    </div>
@@ -71,9 +71,9 @@
 
             if ($bank_result->num_rows > 0) {
                 $bank_row = $bank_result->fetch_assoc();
-                echo "<div class ='flex w-[100%]  justify-center h-[60px] border-[2px] border-white border-solid items-center text-white'>";
-                echo "<img class='border-[2px] border-white border-solid w-[50%%] h-[100%] flex items-center  justify-center' src='{$bank_row['logo']}' > ";
-                echo "<p class='border-[2px] border-white border-solid w-[50%%] h-[100%] flex items-center  justify-center'>Bank : {$bank_row["name"]}</p>";
+                echo "<div class ='flex w-[100%]  justify-center h-[60px] border-[2px] border-black border-solid items-center text-black'>";
+                echo "<img class='border-[2px] border-black border-solid w-[15%] h-[100%] flex items-center  justify-center' src='{$bank_row['logo']}' > ";
+                echo "<p class='border-[2px] border-black border-solid w-[85%] h-[100%] flex items-center  justify-center'>Bank : {$bank_row["name"]}</p>";
                 echo "</div>";
             }
 
@@ -82,47 +82,47 @@
             $result = $conn->query($sql);
 
             if ($result->num_rows > 0) {
-                echo '<table class="leading-9 h-[90%] w-[100%] text-center text-white">';
+                echo '<table class="leading-9 h-[90%]  w-[100%] text-center text-black">';
                 echo '<thead>
                         <tr>
-                            <th class="border-[2px] border-white border-solid w-[15%]">ID</th>
-                            <th class="border-[2px] border-white border-solid w-[15%]">Longtitude</th>
-                            <th class="border-[2px] border-white border-solid w-[15%]">Latitude</th>
-                            <th class="border-[2px] border-white border-solid w-[15%]">Agency Name</th>
-                            <th class="border-[2px] border-white border-solid w-[15%]">Bank ID</th>
-                            <th class="border-[2px] border-white border-solid w-[15%]">Edit</th>
-                            <th class="border-[2px] border-white border-solid w-[15%]">Delete</th>
-                            <th class="border-[2px] border-white border-solid w-[15%]">Agences</th>
+                            <th class="border-[2px] border-black border-solid w-[15%] ">ID</th>
+                            <th class="border-[2px] border-black border-solid w-[15%] ">Longtitude</th>
+                            <th class="border-[2px] border-black border-solid w-[15%] ">Latitude</th>
+                            <th class="border-[2px] border-black border-solid w-[15%] ">Agency Name</th>
+                            <th class="border-[2px] border-black border-solid w-[15%] ">Bank ID</th>
+                            <th class="border-[2px] border-black border-solid w-[15%] ">Edit</th>
+                            <th class="border-[2px] border-black border-solid w-[15%] ">Delete</th>
+                            <th class="border-[2px] border-black border-solid w-[15%] ">Agences</th>
                         </tr>
                     </thead>';
                 while ($row = $result->fetch_assoc()) {
                     echo '<form action="transaction.php" method="post" class="h-[10vh] items-start">';
                     echo "<tr>
-                            <td class='border-[2px] border-white border-solid w-[15%]'>" . $row["agencyId"] . " </td>
-                            <td class='border-[2px] border-white border-solid w-[15%]'> " . $row["longitude"] . "</td>
-                            <td class='border-[2px] border-white border-solid w-[15%]'> " . $row["latitude"] . " </td>
-                            <td class='border-[2px] border-white border-solid w-[15%]'>" . $row["agencyname"] . "</td>
-                            <td class='border-[2px] border-white border-solid w-[15%]'>" . $row["bankId"] . "</td>
-                           
-                            <td class='border-[2px] border-white border-solid w-[15%]'>
-                            <form action='addagency.php' method='post' style='height:10vh; align-items:start;'>
+                            <td class='border-[2px] border-black border-solid '>" . $row["agencyId"] . " </td>
+                            <td class='border-[2px] border-black border-solid '> " . $row["longitude"] . "</td>
+                            <td class='border-[2px] border-black border-solid '> " . $row["latitude"] . " </td>
+                            <td class='border-[2px] border-black border-solid '>" . $row["agencyname"] . "</td>
+                            <td class='border-[2px] border-black border-solid '>" . $row["bankId"] . "</td>
+
+                            <td class='border-[2px] border-black border-solid '>
+                            <form action='addagency.php' method='post'  class = 'h-[5vh]  cursor-pointer width-[150px] hover:bg-black bg-white hover:text-white text-black''>
                             <input type='hidden' name='operation' value='" . $row["agencyId"]. "'>
                             <input type='hidden' name='agencyid' value='" . $row["agencyId"]. "'>
-                            <input type='submit' class='height-[100%] cursor-pointer width-[100%] hover:bg-black bg-white hover:text-white text-black' name='editing' value='Edit'>
+                            <input type='submit'  name='editing' value='Edit'>
                         </form>
                         
                             </td>
                        
-                                <td class='border-[2px] border-white border-solid w-[30%]'>
-                            <form action='agences.php' method='post' style='height:10vh; align-items:start;'>
-                                <input type='hidden' name='bankid' value='" . $row["agencyId"]. "'>
-                                <input type='submit' class='height-[100%] cursor-pointer width-[100%] hover:bg-black bg-white hover:text-white text-black' name='submit' value='Agences'>
+                                <td class='border-[2px] border-black border-solid '>
+                            <form action='users.php' method='post'  class = 'h-[5vh]  cursor-pointer width-[150px] hover:bg-black bg-white hover:text-white text-black'>
+                                <input type='hidden' name='agencyId' value='" . $row["agencyId"]. "'>
+                                <input type='submit'  name='users' value='Users'>
                             </form>
                         </td>  
-                           <td class='border-[2px] border-white border-solid w-[15%]'>
-                                <form action='agences.php' method='post' style='height:10vh; align-items:start;'>
+                           <td class='border-[2px] border-black border-solid '>
+                                <form action='agences.php' method='post'  class = 'h-[5vh]  cursor-pointer width-[150px] hover:bg-black bg-white hover:text-white text-black'>
                                     <input type='hidden' name='delete' value='" . $row["agencyId"] . "'>
-                                    <input type='submit' class='height-[100%] cursor-pointer width-[100%] hover:bg-black bg-white hover:text-white text-black' name='deleteagency' value='Delete'>
+                                    <input type='submit'  name='deleteagency' value='Delete'>
                                 </form>
                             </td>
                         </tr>";
@@ -138,48 +138,49 @@
             $result2 = $conn->query($sqlall);
         
             if ($result2->num_rows > 0) {
-                echo '<table class="leading-9  w-[100%] text-center h-[7vh] items-start text-white">';
+                echo '<table class="leading-9  w-[100%] text-center h-[7vh] items-start text-black">';
                 echo '<thead>
                         <tr>
-                            <th class="border-[2px] border-white border-solid w-[15%]">ID</th>
-                            <th class="border-[2px] border-white border-solid w-[15%]">Longitude</th>
-                            <th class="border-[2px] border-white border-solid w-[15%]">Latitude</th>
-                            <th class="border-[2px] border-white border-solid w-[15%]">Agency Name</th>
-                            <th class="border-[2px] border-white border-solid w-[15%]">Bank ID</th>
-                            <th class="border-[2px] border-white border-solid w-[15%]">Détails</th>
-                            <th class="border-[2px] border-white border-solid w-[15%]">Edit</th>
-                            <th class="border-[2px] border-white border-solid w-[15%]">Delete</th>
+                            <th class="border-[2px] border-black border-solid w-[12%]">ID</th>
+                            <th class="border-[2px] border-black border-solid w-[12%]">Longitude</th>
+                            <th class="border-[2px] border-black border-solid w-[12%]">Latitude</th>
+                            <th class="border-[2px] border-black border-solid w-[12%]">Agency Name</th>
+                            <th class="border-[2px] border-black border-solid w-[12%]">Bank ID</th>
+                            <th class="border-[2px] border-black border-solid w-[12%]">Détails</th>
+                            <th class="border-[2px] border-black border-solid w-[12%]">Edit</th>
+                            <th class="border-[2px] border-black border-solid w-[12%]">Delete</th>
                         </tr>
                     </thead>';
                 while ($row = $result2->fetch_assoc()) {
                 
                     echo "<tr>
-                            <td class='border-[2px] border-white border-solid w-[15%]'>" . $row["agencyId"] . " </td>
-                            <td class='border-[2px] border-white border-solid w-[15%]'> " . $row["longitude"] . "</td>
-                            <td class='border-[2px] border-white border-solid w-[15%]'> " . $row["latitude"] . " </td>
-                            <td class='border-[2px] border-white border-solid w-[15%]'>" . $row["agencyname"] . "</td>
-                            <td class='border-[2px] border-white border-solid w-[15%]'>" . $row["bankId"] . "</td>
+                            <td class='border-[2px] border-black border-solid '>" . $row["agencyId"] . " </td>
+                            <td class='border-[2px] border-black border-solid '> " . $row["longitude"] . "</td>
+                            <td class='border-[2px] border-black border-solid '> " . $row["latitude"] . " </td>
+                            <td class='border-[2px] border-black border-solid '>" . $row["agencyname"] . "</td>
+                            <td class='border-[2px] border-black border-solid '>" . $row["bankId"] . "</td>
 
 
-                            <form action='' method='post' class='h-[50vh] items-start'>
-                            <td class='border-[2px] border-white border-solid w-[15%]'>
-                                <input type='hidden' name='compts_id' value='" . $row["agencyId"] . "'>
-                                <input type='submit' name='submit' class='height-[80px] cursor-pointer w-[100%] hover:bg-black bg-white hover:text-white text-black ' value='transaction'>
-                           
-                                </td>
+                            <td class='border-[2px] border-black border-solid '>
+                            <form action='users.php' method='post' class='height-[80px] cursor-pointer w-[100%] hover:bg-black bg-white hover:text-white text-black '>
+
+                                <input type='hidden' name='agencyId' value='" . $row["agencyId"] . "'>
+                                <input type='submit' name='users'  value='Users'>
                                 </form>
-                            <td class='border-[2px] border-white border-solid w-[15%]'>
-                            <form action='addagency.php' method='post' style='height:10vh; align-items:start;'>
+                                </td>
+                               
+                            <td class='border-[2px] border-black border-solid '>
+                            <form action='addagency.php' method='post' class='height-[100%] cursor-pointer width-[100%] hover:bg-black bg-white hover:text-white text-black'>
                             <input type='hidden' name='operation' value='" . $row["agencyId"]. "'>
                             <input type='hidden' name='agencyid' value='" . $row["agencyId"]. "'>
-                            <input type='submit' class='height-[100%] cursor-pointer width-[100%] hover:bg-black bg-white hover:text-white text-black' name='editing' value='Edit'>
+                            <input type='submit'  name='editing' value='Edit'>
                         </form>
                         
                             </td>
-                            <td class='border-[2px] border-white border-solid w-[15%]'>
-                            <form action='agences.php' method='post' style='height:10vh; align-items:start;'>
+                            <td class='border-[2px] border-black border-solid '>
+                            <form action='agences.php' method='post' class='height-[100%] cursor-pointer width-[100%] hover:bg-black bg-white hover:text-white text-black'>
                                 <input type='hidden' name='delete' value='" . $row["agencyId"] . "'>
-                                <input type='submit' class='height-[100%] cursor-pointer width-[100%] hover:bg-black bg-white hover:text-white text-black' name='deleteagency' value='Delete'>
+                                <input type='submit'  name='deleteagency' value='Delete'>
                             </form>
                         </td>
                         </tr>";

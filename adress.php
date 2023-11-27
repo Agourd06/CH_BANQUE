@@ -23,6 +23,29 @@ if (isset($_POST['submit'])) {
     header('location: clients.php');
     exit();
 }
+
+
+
+
+if (isset($_POST['user_ids']) && $_POST['edited'] === 'Edit') {
+    $id = mysqli_real_escape_string($conn, $_POST['userid']);
+
+    // Fetch user data based on ID
+    $userinfo = "SELECT * FROM users WHERE userid = $id";
+    $result = $conn->query($userinfo);
+
+    if ($result->num_rows > 0) {
+        $row = $result->fetch_assoc();
+
+        // Fetch address data based on user ID
+        $addressInfo = "SELECT * FROM adress WHERE userid = $id";
+        $addressResult = $conn->query($addressInfo);
+
+        if ($addressResult->num_rows > 0) {
+            $addressRow = $addressResult->fetch_assoc();
+        }
+    }
+}
 ?>
 
 
@@ -60,12 +83,12 @@ if (isset($_POST['submit'])) {
             <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" class="flex flex-col gap-[19px] h-[70%] md:h-[80%] w-[80%] md:w-[30%] mb-[15px] p-[10px] bg-gray-300/20 items-center justify-center rounded-[20px]">
                 <h3 class="text-3xl mb-2.5 uppercase font-medium text-gray-900">ADD USER</h3>
 
-                <input type="text" name="ville" required placeholder="City" class="outline-none h-[3rem] p-[5px] w-[85%] rounded">
-                <input type="text" name="quartier" required placeholder="Neighborhood" class="outline-none h-[3rem] p-[5px] w-[85%] rounded">
-                <input type="text" name="rue" required placeholder="Street" class="outline-none h-[3rem] p-[5px] w-[85%] rounded">
-                <input type="text" name="codepostal" required placeholder="Code Postal" class="outline-none h-[3rem] p-[5px] w-[85%] rounded">
-                <input type="email" name="email" required placeholder="E-mail" class="outline-none h-[3rem] p-[5px] w-[85%] rounded">
-                <input type="tel" name="phone" required placeholder="Phone Number" class="outline-none h-[3rem] p-[5px] w-[85%] rounded">
+                <input type="text" name="ville" required placeholder="City" value="<?php echo isset($addressRow['ville']) ? $addressRow['ville'] : ''; ?>"  class="outline-none h-[3rem] p-[5px] w-[85%] rounded">
+                <input type="text" name="quartier" required placeholder="Neighborhood" value="<?php echo isset($addressRow['quartier']) ? $addressRow['quartier'] : ''; ?>"  class="outline-none h-[3rem] p-[5px] w-[85%] rounded">
+                <input type="text" name="rue" required placeholder="Street" value="<?php echo isset($addressRow['rue']) ? $addressRow['rue'] : ''; ?>"   class="outline-none h-[3rem] p-[5px] w-[85%] rounded">
+                <input type="text" name="codepostal" required placeholder="Code Postal" value="<?php echo isset($addressRow['codepostal']) ? $addressRow['codepostal'] : ''; ?>" class="outline-none h-[3rem] p-[5px] w-[85%] rounded">
+                <input type="email" name="email" required placeholder="E-mail" value="<?php echo isset($row['email']) ? $row['email'] : ''; ?>"  class="outline-none h-[3rem] p-[5px] w-[85%] rounded">
+                <input type="tel" name="phone" required placeholder="Phone Number" value="<?php echo isset($row['tel']) ? $row['tel'] : ''; ?>"   class="outline-none h-[3rem] p-[5px] w-[85%] rounded">
                 <div class="w-[85%] flex gap-[50px]">
                     <select name="user" id="" class="outline-none h-[40px] p-[5px] w-[50%] rounded">
                         <?php
