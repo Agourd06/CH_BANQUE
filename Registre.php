@@ -2,28 +2,28 @@
         @include 'DataBase.php';
 
         $error = array();
-
+       
+        
         if (isset($_POST['add_user'])) {
             $fname = mysqli_real_escape_string($conn, $_POST['firstname']);
             $lname = mysqli_real_escape_string($conn, $_POST['lastname']);
             $username = mysqli_real_escape_string($conn, $_POST['username']);
-
             $password = $_POST['password'];
             $cpassword = $_POST['cpassword'];
-
+        
             // Check if password and confirmation password match
             if ($password !== $cpassword) {
                 $error[] = 'Password and confirmation password do not match!';
             } else {
                 $pass = password_hash($password, PASSWORD_DEFAULT);
-
+        
                 // Check if the role exists
                 $roleSelect = "SELECT rolename FROM roles WHERE rolename = ?";
                 $stmtRole = mysqli_prepare($conn, $roleSelect);
                 mysqli_stmt_bind_param($stmtRole, "s", $_POST['user-type']);
                 mysqli_stmt_execute($stmtRole);
                 mysqli_stmt_store_result($stmtRole);
-
+        
                 if (mysqli_stmt_num_rows($stmtRole) > 0) {
                     // Role exists, proceed with user insertion
                     $insert = "INSERT INTO users (firstName, familyName, username, pw)
@@ -31,20 +31,20 @@
                     $stmtUser = mysqli_prepare($conn, $insert);
                     mysqli_stmt_bind_param($stmtUser, "ssss", $fname, $lname, $username, $pass);
                     mysqli_stmt_execute($stmtUser);
-
+        
                     // Get the inserted user's ID
                     $userId = mysqli_insert_id($conn);
-
+        
                     // Insert role of the user into the roleofuser table
                     $roleOfUserInsert = "INSERT INTO roleofuser (userId, rolename)
                                         VALUES (?, ?)";
                     $stmtRoleOfUser = mysqli_prepare($conn, $roleOfUserInsert);
                     mysqli_stmt_bind_param($stmtRoleOfUser, "is", $userId, $_POST['user-type']);
                     mysqli_stmt_execute($stmtRoleOfUser);
-
+        
                     // Close the database connection
                     mysqli_close($conn);
-
+        
                     // Redirect after successful registration
                     header('location: adress.php');
                     exit; // Exit to ensure the script doesn't continue executing
@@ -54,6 +54,10 @@
                 }
             }
         }
+        
+        // ... Rest of your code
+        
+        
         if (isset($_POST['operation']) && $_POST['editing'] === 'Edit') {
             // Retrieve agency details for editing
             $id = $_POST["userid"];

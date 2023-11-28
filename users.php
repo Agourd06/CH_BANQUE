@@ -7,6 +7,13 @@ if (isset($_POST['deleteuser']) && isset($_POST['userId'])) {
     $id = $_POST['userId'];
 
 
+   
+    
+    $deletetransaction = "DELETE FROM transaction WHERE accountId IN (SELECT accountId FROM account WHERE userId = $id)";
+    $conn->query($deletetransaction);
+    
+
+
     $deleteaaccount = "DELETE FROM account WHERE userId = $id";
     $conn->query($deleteaaccount);
     // Delete associated records in the 'agency' table

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>O'PEP</title>
+    <title>CIH BANK</title>
     <script src="https://cdn.tailwindcss.com"></script>
 
     <style>
@@ -163,7 +163,7 @@
                  Consultez notre section de sécurité<br> pour en savoir plus sur les mesures que nous prenons<br> pour protéger vos comptes</p>
         </div>
         <div class=" text-center flex h-[100%] flex-col items-center gap-[65px] pt-[25px]">
-        <button type="button" class="text-white w-[200px] h-[50px] font-bold bg-gradient-to-r from-cyan-400 to-orange-300 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">Consulter Mes Données</button>
+        <button type="button" class="text-white w-[200px] h-[50px] font-bold bg-gradient-to-r from-cyan-400 to-orange-300 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800  rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">Consulter Mes Données</button>
             <div class=" text-center flex  flex-col items-center gap-4" >
             <svg xmlns="http://www.w3.org/2000/svg" height="50" viewBox="0 -960 960 960" width="50"><path d="M200-280v-280h80v280h-80Zm240 0v-280h80v280h-80ZM80-120v-80h800v80H80Zm600-160v-280h80v280h-80ZM80-640v-80l400-200 400 200v80H80Zm178-80h444-444Zm0 0h444L480-830 258-720Z"/></svg>
             <h1 class="font-bold">Bienvenue chez CIH BANK!</h1>

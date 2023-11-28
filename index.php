@@ -1,42 +1,66 @@
 <?php
-@include 'database.php';
 session_start();
 
+@include 'database.php';
+
+$error = array();
+
 if (isset($_POST['submit'])) {
-    $username = mysqli_real_escape_string($conn, $_POST['username']);
-    $password = md5($_POST['password']);
-    
-    $select = "SELECT users.userid, roleofuser.rolename , roleofuser.userid , users.username ,users.pw
-    FROM users 
-    INNER JOIN roleofuser  ON users.userId = roleofuser.userId
-    WHERE users.username = '$username'";
-    $result = mysqli_query($conn, $select);
+    $username = mysqli_real_escape_string($conn, $_POST['names']);
+    $password = $_POST['password'];
 
-    if ($result && mysqli_num_rows($result) > 0) {
-        $row = mysqli_fetch_array($result);
-        if (isset($row['pw']) && password_verify($password, $row['pw'])){
-       
-            $roleName = $row['rolename'];
+    // Use placeholders for password comparison and fetch the hashed password from the database
+   // ...
 
-            if ($roleName == 'admin' || $roleName == 'client') {
-                $_SESSION['user_type'] = strtolower($roleName);
-                header("location: {$roleName}Page.php");
-                exit();
+$query = "SELECT users.userId, roleofuser.rolename, roleofuser.userId, users.username, users.pw
+FROM users 
+INNER JOIN roleofuser ON users.userId = roleofuser.userId
+WHERE users.username = ?";
+
+echo "SQL Query: " . $query . "<br>";
+
+$stmt = mysqli_prepare($conn, $query);
+mysqli_stmt_bind_param($stmt, "s", $username);
+mysqli_stmt_execute($stmt);
+$result = mysqli_stmt_get_result($stmt);
+
+// ...
+
+
+    if ($result) {
+        if (mysqli_num_rows($result) > 0) {
+            $row = mysqli_fetch_assoc($result);
+
+            // Verify hashed password
+            if (password_verify($password, $row['pw'])) {
+                $roleName = $row['rolename'];
+                $_SESSION['user_type'] = $roleName;
+
+                if ($_SESSION['user_type'] === 'admin') {
+                    header("Location: banques.php");
+                    exit();
+                } elseif ($_SESSION['user_type'] === 'client') {
+                    header("Location: home.php");
+                    exit();
+                } else {
+                    // Handle other user types if needed
+                }
             } else {
-                $error[] = 'Invalid user type!';
+                $error[] = 'Incorrect username or password!';
             }
         } else {
-            $error[] = 'Incorrect email or password!';
+            $error[] = 'Incorrect username or password!';
         }
     } else {
-        $error[] = 'Incorrect email or password!';
-    }
-
-    if (!$result) {
         $error[] = 'Database query error: ' . mysqli_error($conn);
     }
+
+    // Close the statement
+    mysqli_stmt_close($stmt);
 }
 ?>
+
+
 
 
 
@@ -84,16 +108,32 @@ if (!empty($error)) {
             <h1 class="md:text-[45px] text-[35px] text-gray-900 font-bold		">LOGIN</h1>
 
             
-            <input type="text" name="username" required placeholder="Enter Your Username" class ="outline-none	bg-gray-200 border border-black/50 border-solid md:h-[3rem] h-[2rem] p-[10px] w-[85%] rounded">
+            <input type="text" name="names" required placeholder="Enter Your Username" class ="outline-none	bg-gray-200 border border-black/50 border-solid md:h-[3rem] h-[2rem] p-[10px] w-[85%] rounded">
             <input type="password" name="password" required placeholder="Enter Your password" class ="outline-none	bg-gray-200 border border-black/50 border-solid md:h-[3rem] h-[2rem] w-[85%] p-[10px] rounded">
-           
-          
+           <?php
+              $sql = "SELECT  userId FROM users";
+              $result = $conn->query($sql);
+
+
+              if ($result->num_rows > 0) {
+                  while ($row = $result->fetch_assoc()) {
+                    echo "   
+                    <input type='hidden' name='userdata' value='" . $row["userid"] . "'>       
+                    ";
+                 }}
+               
+           ?>
+            
             <input type="submit" name="submit" value="LOG IN" class="bg-blue-500 hover:bg-blue-700 text-gray-900 font-bold py-2 px-4 w-[85%] rounded cursor-pointer">
            
 
         </form>
         </div>
     </section>
+
+
+
+
     <footer class="bg-gray-900 h-[15vh]  shadow sm:flex sm:items-center sm:justify-between p-4 sm:p-6 xl:p-8 dark:bg-gray-800 antialiased">
   <p class="mb-4 text-sm text-center text-gray-500 dark:text-gray-400 sm:mb-0">
       &copy; 2023-2024 <a href="https://flowbite.com/" class="hover:underline" target="_blank">Flowbite.com</a>. All rights reserved.

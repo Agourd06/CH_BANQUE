@@ -7,10 +7,10 @@ if (isset($_POST['submit'])) {
     $username = mysqli_real_escape_string($conn, $_POST['username']);
     $password = $_POST['password'];
 
-    $select = "SELECT users.userid, roleofuser.rolename , roleofuser.userid , users.username ,users.pw
-               FROM users 
-               INNER JOIN roleofuser  ON users.userId = roleofuser.userId
-               WHERE users.username = '$username'";
+    $select = "SELECT users.userid, roleofuser.rolename, roleofuser.userid, users.username, users.pw
+    FROM users 
+    INNER JOIN roleofuser ON users.userId = roleofuser.userId
+    WHERE users.username = $username AND users.pw = $password";
     
 
     $result = mysqli_query($conn, $select);
@@ -19,11 +19,8 @@ if (isset($_POST['submit'])) {
         if (mysqli_num_rows($result) > 0) {
             $row = mysqli_fetch_assoc($result);
 
-            // Check if the 'password' key exists in the $row array
             if (isset($row['pw']) && password_verify($password, $row['pw'])) {
-                // Password is correct
 
-                // Check the user's role and redirect accordingly
                 $roleName = $row['rolename'];
                 $_SESSION['user_type'] = $roleName;
 
