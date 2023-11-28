@@ -117,8 +117,8 @@
                     <li class="p-4 border-b-2 border-green-500 border-opacity-0 hover:border-opacity-100 hover:text-green-500 duration-200 cursor-pointer active">
                         <a href="">Home</a>
                     </li>
-                    <li class="p-4 border-b-2 border-green-500 border-opacity-0 hover:border-opacity-100 hover:text-green-500 duration-200 cursor-pointer">
-                    <select name="clients" id="selectOption" class="outline-none rounded">
+                    <li class="p-4 border-b-2 outline-none border-green-500 border-opacity-0 hover:border-opacity-100 hover:text-green-500 duration-200 cursor-pointer">
+                    <select name="clients" id="selectOption" class="border-none outline-none rounded">
                     <option class="font-semibold text-lg" value="Banks">Locations</option>
 
                         <option class="font-semibold text-lg" value="Banks">Banks</option>
@@ -126,26 +126,22 @@
                         <option class="font-semibold text-lg" value="ATM">ATM</option>
                     </select>
                 </li>
-                <li class="p-4 border-b-2 border-green-500 border-opacity-0 hover:border-opacity-100 hover:text-green-500 duration-200 cursor-pointer">
-                    <a href="">Contact</a>
-                </li>
-                <li class="p-4 border-b-2 border-green-500 border-opacity-0 hover:border-opacity-100 hover:text-green-500 duration-200 cursor-pointer">
-                    <select name="clients" id="selectOptions" class="outline-none rounded">
+              
+                <li class="p-4 border-b-2 outline-none border-green-500 border-opacity-0 hover:border-opacity-100 hover:text-green-500 duration-200 cursor-pointer">
+                    <select name="clients" id="selectOptions" class="border-none outline-none rounded">
                     <option class="font-semibold text-lg" value="client">Operations</option>
 
                         <option class="font-semibold text-lg" value="client">Users</option>
                         <option class="font-semibold text-lg" value="accounts">accounts</option>
                         <option class="font-semibold text-lg" value="transactions">transactions</option>
                     </select>
-                    </li>
+                    </li> 
+                     <li class="p-4 border-b-2 border-green-500 border-opacity-0 hover:border-opacity-100 hover:text-green-500 duration-200 cursor-pointer">
+                    <a href="">Contact</a>
+                </li>
                 </ul>
             </nav>
-            <!-- buttons --->
-            <a href="">
-                <svg class="h-8 p-1 hover:text-green-500 duration-200" aria-hidden="true" focusable="false" data-prefix="far" data-icon="search" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="svg-inline--fa fa-search fa-w-16 fa-9x">
-                    <path fill="currentColor" d="M508.5 468.9L387.1 347.5c-2.3-2.3-5.3-3.5-8.5-3.5h-13.2c31.5-36.5 50.6-84 50.6-136C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c52 0 99.5-19.1 136-50.6v13.2c0 3.2 1.3 6.2 3.5 8.5l121.4 121.4c4.7 4.7 12.3 4.7 17 0l22.6-22.6c4.7-4.7 4.7-12.3 0-17zM208 368c-88.4 0-160-71.6-160-160S119.6 48 208 48s160 71.6 160 160-71.6 160-160 160z" class=""></path>
-                </svg>
-            </a>
+
         </header>
 
     <section class="carousel-container">
@@ -159,41 +155,26 @@
 
     <section class="bg-slate-100 bg-cover h-[70vh] flex items-center justify-around">
 
-        <div class="text-center flex flex-col items-center gap-4"><svg xmlns="http://www.w3.org/2000/svg" height="2em"
-                viewBox="0 0 448 512">
-                <path
-                    d="M210.6 5.9L62 169.4c-3.9 4.2-6 9.8-6 15.5C56 197.7 66.3 208 79.1 208H104L30.6 281.4c-4.2 4.2-6.6 10-6.6 16C24 309.9 34.1 320 46.6 320H80L5.4 409.5C1.9 413.7 0 419 0 424.5c0 13 10.5 23.5 23.5 23.5H192v32c0 17.7 14.3 32 32 32s32-14.3 32-32V448H424.5c13 0 23.5-10.5 23.5-23.5c0-5.5-1.9-10.8-5.4-15L368 320h33.4c12.5 0 22.6-10.1 22.6-22.6c0-6-2.4-11.8-6.6-16L344 208h24.9c12.7 0 23.1-10.3 23.1-23.1c0-5.7-2.1-11.3-6-15.5L237.4 5.9C234 2.1 229.1 0 224 0s-10 2.1-13.4 5.9z" />
-            </svg>
+        <div class="text-center flex flex-col items-center gap-4"><svg xmlns="http://www.w3.org/2000/svg" height="50" viewBox="0 -960 960 960" width="50"><path d="m438-338 226-226-57-57-169 169-84-84-57 57 141 141Zm42 258q-139-35-229.5-159.5T160-516v-244l320-120 320 120v244q0 152-90.5 276.5T480-80Zm0-84q104-33 172-132t68-220v-189l-240-90-240 90v189q0 121 68 220t172 132Zm0-316Z"/></svg>
             <h1 class="font-bold">
-                PLANT AND ACCESSORIES SALES
+            Notification de Sécurité 
             </h1>
-            <p> O'PEP offers a range of indoor and outdoor<BR> plants, along with accessories like pots,<BR> substrates,
-                and gardening tools.</p>
+            <p> Votre sécurité est notre priorité. Assurez-vous d'utiliser<br> des mots de passe forts et de ne jamais partager vos <br>informations personnelles.
+                 Consultez notre section de sécurité<br> pour en savoir plus sur les mesures que nous prenons<br> pour protéger vos comptes</p>
         </div>
-        <div class=" text-center flex h-[100%] flex-col items-center gap-[150px]">
-            <button>szxkznc</button>
+        <div class=" text-center flex h-[100%] flex-col items-center gap-[65px] pt-[25px]">
+        <button type="button" class="text-white w-[200px] h-[50px] font-bold bg-gradient-to-r from-cyan-400 to-orange-300 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">Consulter Mes Données</button>
             <div class=" text-center flex  flex-col items-center gap-4" >
-             <svg xmlns="http://www.w3.org/2000/svg" height="2em"
-                viewBox="0 0 512 512">
-                <path
-                    d="M272 96c-78.6 0-145.1 51.5-167.7 122.5c33.6-17 71.5-26.5 111.7-26.5h88c8.8 0 16 7.2 16 16s-7.2 16-16 16H288 216s0 0 0 0c-16.6 0-32.7 1.9-48.2 5.4c-25.9 5.9-50 16.4-71.4 30.7c0 0 0 0 0 0C38.3 298.8 0 364.9 0 440v16c0 13.3 10.7 24 24 24s24-10.7 24-24V440c0-48.7 20.7-92.5 53.8-123.2C121.6 392.3 190.3 448 272 448l1 0c132.1-.7 239-130.9 239-291.4c0-42.6-7.5-83.1-21.1-119.6c-2.6-6.9-12.7-6.6-16.2-.1C455.9 72.1 418.7 96 376 96L272 96z" />
-            </svg>
-            <h1 class="font-bold">
-                GARDENING ADVICE
-            </h1>
-            <p>O'PEP provides expert advice on plant selection,<BR> planting, and maintenance, tailored to growth<BR>
-                conditions and location.</p>
+            <svg xmlns="http://www.w3.org/2000/svg" height="50" viewBox="0 -960 960 960" width="50"><path d="M200-280v-280h80v280h-80Zm240 0v-280h80v280h-80ZM80-120v-80h800v80H80Zm600-160v-280h80v280h-80ZM80-640v-80l400-200 400 200v80H80Zm178-80h444-444Zm0 0h444L480-830 258-720Z"/></svg>
+            <h1 class="font-bold">Bienvenue chez CIH BANK!</h1>
+            <p>Nous sommes ravis de vous accueillir. Explorez nos <br> services bancaires en ligne et
+                 découvrez comment nous pouvons<br>  simplifier votre gestion financière.</p>
                 </div>
         </div>
-        <div class="text-center flex flex-col items-center gap-4"> <svg xmlns="http://www.w3.org/2000/svg" height="2em"
-                viewBox="0 0 384 512">
-                <path
-                    d="M384 312.7c-55.1 136.7-187.1 54-187.1 54-40.5 81.8-107.4 134.4-184.6 134.7-16.1 0-16.6-24.4 0-24.4 64.4-.3 120.5-42.7 157.2-110.1-41.1 15.9-118.6 27.9-161.6-82.2 109-44.9 159.1 11.2 178.3 45.5 9.9-24.4 17-50.9 21.6-79.7 0 0-139.7 21.9-149.5-98.1 119.1-47.9 152.6 76.7 152.6 76.7 1.6-16.7 3.3-52.6 3.3-53.4 0 0-106.3-73.7-38.1-165.2 124.6 43 61.4 162.4 61.4 162.4.5 1.6.5 23.8 0 33.4 0 0 45.2-89 136.4-57.5-4.2 134-141.9 106.4-141.9 106.4-4.4 27.4-11.2 53.4-20 77.5 0 0 83-91.8 172-20z" />
-            </svg>
+        <div class="text-center flex flex-col items-center gap-4"> <svg xmlns="http://www.w3.org/2000/svg" height="50" viewBox="0 -960 960 960" width="50"><path d="M480-120q-75 0-140.5-28.5t-114-77q-48.5-48.5-77-114T120-480q0-75 28.5-140.5t77-114q48.5-48.5 114-77T480-840q82 0 155.5 35T760-706v-94h80v240H600v-80h110q-41-56-101-88t-129-32q-117 0-198.5 81.5T200-480q0 117 81.5 198.5T480-200q105 0 183.5-68T756-440h82q-15 137-117.5 228.5T480-120Zm112-192L440-464v-216h80v184l128 128-56 56Z"/></svg>
             <h1 class="font-bold">
-                DELIVERY AND LANDSCAPING </h1>
-            <p>O'PEP provides online plant order delivery and <BR>landscaping services for customers creating<BR> floral
-                arrangements </p>
+            Mises à Jour et Nouveautés</h1>
+            <p>Restez informé! Consultez notre page d'accueil régulièrement<br>  pour les dernières mises à jour, promotions et nouveautés. Nous <br> travaillons constamment pour améliorer votre<br>  expérience bancaire</p>
         </div>
     </section>
     <section class="h-[90vh]">
@@ -244,33 +225,6 @@
     </section>
 
 
-    </section>
-
-    <section>
-        <h1 class="mb-4 text-5xl font-extrabold leading-none tracking-tight text-center py-8">Client Satisfait</h1>
-        <div class="sm:grid grid-cols-3 gap-2 ">
-            <div class="bg-gradient-to-b  from-gray-100 to-gray-300  rounded-md shadow-md text-center">
-                <img class="rounded-full h-24 mx-auto p-2" src="../media/belle.jpg" alt="feedback">
-
-                <p>Le service de location était très pratique et le personnel était extrêmement amical. Je louerai
-                    certainement à nouveau avec eux.</p>
-                <p class="font-bold text-green-500">Sophie M.</p>
-            </div>
-            <div class="bg-gradient-to-b from-gray-100 to-gray-300  rounded-md shadow-md text-center">
-                <img class="rounded-full w-24 h-24 mx-auto p-2" src="../media/fb1.jpg" alt="feedback">
-
-                <p>Le service de location était très pratique et le personnel était extrêmement amical. Je louerai
-                    certainement à nouveau avec eux.</p>
-                <p class="font-bold text-green-500">David L.</p>
-            </div>
-            <div class="bg-gradient-to-b  from-gray-100 to-gray-300  rounded-md shadow-md text-center">
-                <img class="rounded-full h-24 w-24 mx-auto p-2" src="../media/fb2.jpg" alt="feedback">
-
-                <p>Le service de location était très pratique et le personnel était extrêmement amical. Je louerai
-                    certainement à nouveau avec eux.</p>
-                <p class="font-bold text-green-500">Emma G.</p>
-            </div>
-        </div>
     </section>
 
 
