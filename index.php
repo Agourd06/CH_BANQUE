@@ -17,7 +17,7 @@ FROM users
 INNER JOIN roleofuser ON users.userId = roleofuser.userId
 WHERE users.username = ?";
 
-echo "SQL Query: " . $query . "<br>";
+
 
 $stmt = mysqli_prepare($conn, $query);
 mysqli_stmt_bind_param($stmt, "s", $username);

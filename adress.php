@@ -20,7 +20,7 @@ if (isset($_POST['submit'])) {
     // Rest of your code...
 
     // For example, you can redirect to another page after successful insertion
-    header('location: clients.php');
+    header('location: users.php');
     exit();
 }
 

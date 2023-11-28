@@ -30,12 +30,20 @@ if (isset($_SESSION['username'])) {
     <script src="https://cdn.tailwindcss.com"></script>
 
     <title>Clients Page</title>
+    <style>
+        .texto {
+            font-family: 'Playfair Display', serif;
+        }
+        .bg {
+            background: #f2f2f2;
+        }
+    </style>
 </head>
 
 <body>
 
 
-    <header class="header sticky w-[100%] top-0 bg-white shadow-md flex items-center justify-between px-8 py-02 z-50 	">
+    <header class="header sticky w-[100%] h-[8vh] top-0 bg-white shadow-md flex items-center justify-between px-8 py-02 z-50 	">
         <!-- logo -->
         <a href="">
             <img src="images/cihlogo.png" alt="" class="md:h-[50px] md:w-[140px] h-[35px] w-[90px]">
@@ -73,45 +81,49 @@ if (isset($_SESSION['username'])) {
         </nav>
 
     </header>
-    <div class = ' w-[30vw] h-[10vh] flex flex-row justify-center items-center gap-[10px]'><h1 class="text-[30px] font-bold">WELCOM : </h1> <p class="text-[30px] font-bold"> <?php echo $userData1; ?> !</p></div>
-    <section class = "h-[25vh] flex items-center w-[100%] ">
-    <div class="relative overflow-x-auto w-[100%] shadow-md sm:rounded-lg">
-        <table class="w-full text-sm text-center rtl:text-right text-gray-500 dark:text-gray-400">
-            <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-                <tr>
-                    <th scope="col" class="px-6 py-3">
-                        Your Id
-                    </th>
-                    <th scope="col" class="px-6 py-3">
-                        Username
-                    </th>
-                    <th scope="col" class="px-6 py-3">
-                        First Name
-                    </th>
-                    <th scope="col" class="px-6 py-3">
-                        Family Name
-                    </th>
-                    <th scope="col" class="px-6 py-3">
-                        My Accounts
-                    </th>
+    <section class = 'bg h-[92vh]'>
+        <div class=' texto w-[30vw] h-[20vh] flex flex-row justify-center items-center gap-[10px]'>
+            <h1 class="text-[30px] font-bold">WELCOM : </h1>
+            <p class="text-[30px] font-bold"> <?php echo $userData1; ?> !</p>
+        </div>
+        <section class="h-[20vh] flex items-center w-[100%] ">
+            <div class="relative overflow-x-auto w-[100%] shadow-md sm:rounded-lg">
+                <table class="w-full text-sm text-center rtl:text-right text-gray-500 dark:text-gray-400">
+                    <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                        <tr>
+                            <th scope="col" class="px-6 py-3">
+                                Your Id
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                Username
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                First Name
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                Family Name
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                My Accounts
+                            </th>
 
 
-                </tr>
-            </thead>
-            <tbody>
-                <?php
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
 
 
 
-                $sql = "SELECT * FROM `users` WHERE userId = '$userData'";
-                $result = $conn->query($sql);
+                        $sql = "SELECT * FROM `users` WHERE userId = '$userData'";
+                        $result = $conn->query($sql);
 
 
-                if ($result->num_rows > 0) {
-                    while ($row = $result->fetch_assoc()) {
+                        if ($result->num_rows > 0) {
+                            while ($row = $result->fetch_assoc()) {
 
-                        $id = $row["userId"];
-                        echo '
+                                $id = $row["userId"];
+                                echo '
             <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
                 <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                 ' . $row['userId'] . '
@@ -130,13 +142,14 @@ if (isset($_SESSION['username'])) {
                 </td>
                 
             </tr>';
-                    }
-                }
-                ?>
+                            }
+                        }
+                        ?>
 
-            </tbody>
-        </table>
-    </div>
+                    </tbody>
+                </table>
+            </div>
+        </section>
     </section>
 </body>
 
