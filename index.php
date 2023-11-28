@@ -33,21 +33,23 @@ $result = mysqli_stmt_get_result($stmt);
 
             // Verify hashed password
             if (password_verify($password, $row['pw'])) {
-                $roleName = $row['rolename'];
-                $_SESSION['user_type'] = $roleName;
-
+                $_SESSION['user_type'] = $row['rolename'];
+                $_SESSION['user_id'] = $row['userId'];
+                $_SESSION['username'] = $row['username'];
+                
                 if ($_SESSION['user_type'] === 'admin') {
                     header("Location: banques.php");
-                    exit();
+                    exit;
                 } elseif ($_SESSION['user_type'] === 'client') {
                     header("Location: home.php");
-                    exit();
+                    exit;
                 } else {
                     // Handle other user types if needed
                 }
             } else {
                 $error[] = 'Incorrect username or password!';
             }
+            
         } else {
             $error[] = 'Incorrect username or password!';
         }
@@ -115,12 +117,6 @@ if (!empty($error)) {
               $result = $conn->query($sql);
 
 
-              if ($result->num_rows > 0) {
-                  while ($row = $result->fetch_assoc()) {
-                    echo "   
-                    <input type='hidden' name='userdata' value='" . $row["userid"] . "'>       
-                    ";
-                 }}
                
            ?>
             

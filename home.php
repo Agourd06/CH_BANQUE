@@ -104,6 +104,10 @@
 </head>
 
 <body>
+    <?php
+    session_start();
+   
+    ?>
 
 <header class="header sticky w-[100%] top-0 bg-white shadow-md flex items-center justify-between px-8 py-02 z-50 	">
             <!-- logo -->
@@ -131,7 +135,7 @@
                     <select name="clients" id="selectOptions" class="border-none outline-none rounded">
                     <option class="font-semibold text-lg" value="client">Operations</option>
 
-                        <option class="font-semibold text-lg" value="client">Users</option>
+                        <option class="font-semibold text-lg" value="clian">client</option>
                         <option class="font-semibold text-lg" value="accounts">accounts</option>
                         <option class="font-semibold text-lg" value="transactions">transactions</option>
                     </select>

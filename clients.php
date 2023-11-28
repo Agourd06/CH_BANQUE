@@ -1,48 +1,23 @@
 <?php
 session_start();
+@include "DataBase.php";
 
-@include 'database.php';
-
-if (isset($_POST['submit'])) {
-    $username = mysqli_real_escape_string($conn, $_POST['username']);
-    $password = $_POST['password'];
-
-    $select = "SELECT users.userid, roleofuser.rolename, roleofuser.userid, users.username, users.pw
-    FROM users 
-    INNER JOIN roleofuser ON users.userId = roleofuser.userId
-    WHERE users.username = $username AND users.pw = $password";
-    
-
-    $result = mysqli_query($conn, $select);
-
-    if ($result) {
-        if (mysqli_num_rows($result) > 0) {
-            $row = mysqli_fetch_assoc($result);
-
-            if (isset($row['pw']) && password_verify($password, $row['pw'])) {
-
-                $roleName = $row['rolename'];
-                $_SESSION['user_type'] = $roleName;
-
-                if ($roleName === 'admin') {
-                    header("Location: banques.php");
-                } elseif ($roleName === 'client') {
-                    header("Location: home.php");
-                } else {
-                    // Handle other roles as needed
-                }
-
-                exit();
-            } else {
-                $error[] = 'Incorrect username or password!';
-            }
-        } else {
-            $error[] = 'Incorrect username or password!';
-        }
-    } else {
-        $error[] = 'Database query error: ' . mysqli_error($conn);
-    }
+if (!isset($_SESSION['user_id']) || $_SESSION['user_type'] !== 'client' || !isset($_SESSION['user_type'])) {
+    header("Location: index.php");
+    exit();
 }
+
+$userData = array();
+
+if (isset($_SESSION['user_id'])) {
+    $userData = $_SESSION['user_id'];
+}
+$userData1 = array();
+
+if (isset($_SESSION['username'])) {
+    $userData1 = $_SESSION['username'];
+}
+
 
 ?>
 
@@ -52,37 +27,117 @@ if (isset($_POST['submit'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>O'PEP</title>
     <script src="https://cdn.tailwindcss.com"></script>
+
+    <title>Clients Page</title>
 </head>
 
 <body>
-    <section class="bg-[url('images/backgroudOPEP.png')] bg-cover h-[150vh] flex items-center justify-center">
-        <div class="min-h-[85vh] w-[90%] m-auto gap-[15px] flex flex-col md:flex-row md:justify-evenly items-center">
-            <div class="md:w-[50%] w-[85%] flex flex-col gap-[25px] mt-[15px]">
-                <h1 class="text-gray-900 text-[45px] md:text-[60px]">O'PEP</h1>
-                <h3 class="text-gray-900 text-[25px] md:text-[30px]"> Your Gateway to Financial Harmony</h3>
-                <p class="text-gray-900 text-[15px] md:text-[18px]">
-                    Chez "Jardins en Éveil", nous croyons en la magie des plantes et en leur capacité à apporter la vie à n'importe quel espace. Notre entreprise est née de la passion pour la nature et le désir de partager la beauté et les bienfaits des plantes avec le monde.
-                </p>
-            </div>
 
-            <div class="h-[90vh] w-[100%] md:w-[40%] flex justify-center items-center">
-                <form action="" class="flex flex-col gap-[8px] h-[55%] w-[100%] p-[10px] bg-gray-300/70 items-center justify-center rounded" method="post">
-                    <h3 class="text-3xl mb-2.5 uppercase font-medium text-green-900">login now</h3>
-                    <?php
-                        if (isset($error)) {
-                            foreach ($error as $error) {
-                                echo '<span style="color: red; ">' . $error . '</span>';
-                            };
-                        }
-                    ?>
-                    <input type="email" name="email" required placeholder="Enter Your E-mail" class="outline-none h-[3rem] p-[5px] w-[85%] rounded">
-                    <input type="password" name="password" required placeholder="Enter Your password" class="outline-none h-[3rem] w-[85%] p-[5px] rounded">
-                    <div class="w-[85%]"></div>
-                    <input type="submit" name="submit" value="login now" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 w-[85%] rounded cursor-pointer">
-                    <p>don't have an account?<a class="text-green-700" href="registerPage.php">register now</a></p>
-                </form>
-            </div>
-        </div>
+
+    <header class="header sticky w-[100%] top-0 bg-white shadow-md flex items-center justify-between px-8 py-02 z-50 	">
+        <!-- logo -->
+        <a href="">
+            <img src="images/cihlogo.png" alt="" class="md:h-[50px] md:w-[140px] h-[35px] w-[90px]">
+
+        </a>
+        <!-- navigation -->
+        <nav class="nav font-semibold w-[100%] text-lg">
+            <ul class="flex items-center w-[100%] justify-center  ">
+                <li class="p-4 border-b-2 border-green-500 border-opacity-0 hover:border-opacity-100 hover:text-green-500 duration-200 cursor-pointer active">
+                    <a href="">Home</a>
+                </li>
+                <li class="p-4 border-b-2 outline-none border-green-500 border-opacity-0 hover:border-opacity-100 hover:text-green-500 duration-200 cursor-pointer">
+                    <select name="clients" id="selectOption" class="border-none outline-none rounded">
+                        <option class="font-semibold text-lg" value="Banks">Locations</option>
+
+                        <option class="font-semibold text-lg" value="Banks">Banks</option>
+                        <option class="font-semibold text-lg" value="agency">agency</option>
+                        <option class="font-semibold text-lg" value="ATM">ATM</option>
+                    </select>
+                </li>
+
+                <li class="p-4 border-b-2 outline-none border-green-500 border-opacity-0 hover:border-opacity-100 hover:text-green-500 duration-200 cursor-pointer">
+                    <select name="clients" id="selectOptions" class="border-none outline-none rounded">
+                        <option class="font-semibold text-lg" value="client">Operations</option>
+
+                        <option class="font-semibold text-lg" value="clian">client</option>
+                        <option class="font-semibold text-lg" value="accounts">accounts</option>
+                        <option class="font-semibold text-lg" value="transactions">transactions</option>
+                    </select>
+                </li>
+                <li class="p-4 border-b-2 border-green-500 border-opacity-0 hover:border-opacity-100 hover:text-green-500 duration-200 cursor-pointer">
+                    <a href="">Contact</a>
+                </li>
+            </ul>
+        </nav>
+
+    </header>
+    <div class = ' w-[30vw] h-[10vh] flex flex-row justify-center items-center gap-[10px]'><h1 class="text-[30px] font-bold">WELCOM : </h1> <p class="text-[30px] font-bold"> <?php echo $userData1; ?> !</p></div>
+    <section class = "h-[25vh] flex items-center w-[100%] ">
+    <div class="relative overflow-x-auto w-[100%] shadow-md sm:rounded-lg">
+        <table class="w-full text-sm text-center rtl:text-right text-gray-500 dark:text-gray-400">
+            <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                <tr>
+                    <th scope="col" class="px-6 py-3">
+                        Your Id
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Username
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        First Name
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Family Name
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        My Accounts
+                    </th>
+
+
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+
+
+
+                $sql = "SELECT * FROM `users` WHERE userId = '$userData'";
+                $result = $conn->query($sql);
+
+
+                if ($result->num_rows > 0) {
+                    while ($row = $result->fetch_assoc()) {
+
+                        $id = $row["userId"];
+                        echo '
+            <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
+                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                ' . $row['userId'] . '
+                </th>
+                <td class="px-6 py-4">
+                ' . $row['username'] . '
+                </td>
+                <td class="px-6 py-4">
+                ' . $row['firstName'] . '
+                </td>
+                <td class="px-6 py-4">
+                ' . $row['familyName'] . '
+                </td>
+                <td class="px-6 py-4">
+                    <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Show</a>
+                </td>
+                
+            </tr>';
+                    }
+                }
+                ?>
+
+            </tbody>
+        </table>
+    </div>
     </section>
+</body>
+
+</html>

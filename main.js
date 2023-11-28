@@ -45,5 +45,7 @@ if (selectedOption === 'Banks') {
             window.location.href = 'accounts.php';
             } else if (selectedOption === 'transactions') {
             window.location.href = 'transactions.php';
-            }
+            }else if (selectedOption === 'clian') {
+                window.location.href = 'clients.php';
+                }
         });
