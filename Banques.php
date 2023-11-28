@@ -64,7 +64,7 @@ if (isset($_POST['Deletes']) && isset($_POST['bankid'])) {
             <nav class="nav font-semibold w-[100%] text-lg">
                 <ul class="flex items-center w-[100%] justify-center  ">
                   
-                    <li class="p-4 border-b-2 border-green-500 border-opacity-0 hover:border-opacity-100 hover:text-green-500 duration-200 cursor-pointer">
+                    <li class="p-4 border-b-2 border-blue-500 border-opacity-0 hover:border-opacity-100 hover:text-blue-500 duration-200 cursor-pointer">
                     <select name="clients" id="selectOption" class="outline-none rounded">
                     <option class="font-semibold text-lg" value="Banks">Locations</option>
 
@@ -74,7 +74,7 @@ if (isset($_POST['Deletes']) && isset($_POST['bankid'])) {
                     </select>
                 </li>
             
-                <li class="p-4 border-b-2 border-green-500 border-opacity-0 hover:border-opacity-100 hover:text-green-500 duration-200 cursor-pointer">
+                <li class="p-4 border-b-2 border-blue-500 border-opacity-0 hover:border-opacity-100 hover:text-blue-500 duration-200 cursor-pointer">
                     <select name="clients" id="selectOptions1" class="outline-none rounded">
                     <option class="font-semibold text-lg" value="client">Operations</option>
 

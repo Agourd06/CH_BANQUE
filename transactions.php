@@ -72,7 +72,7 @@ UPDATE account
             <nav class="nav font-semibold w-[100%] text-lg">
                 <ul class="flex items-center w-[100%] justify-center  ">
                   
-                    <li class="p-4 border-b-2 border-green-500 border-opacity-0 hover:border-opacity-100 hover:text-green-500 duration-200 cursor-pointer">
+                    <li class="p-4 border-b-2 border-blue-500 border-opacity-0 hover:border-opacity-100 hover:text-blue-500 duration-200 cursor-pointer">
                     <select name="clients" id="selectOption" class="outline-none rounded">
                     <option class="font-semibold text-lg" value="Banks">Locations</option>
 
@@ -82,7 +82,7 @@ UPDATE account
                     </select>
                 </li>
             
-                <li class="p-4 border-b-2 border-green-500 border-opacity-0 hover:border-opacity-100 hover:text-green-500 duration-200 cursor-pointer">
+                <li class="p-4 border-b-2 border-blue-500 border-opacity-0 hover:border-opacity-100 hover:text-blue-500 duration-200 cursor-pointer">
                     <select name="clients" id="selectOptions1" class="outline-none rounded">
                     <option class="font-semibold text-lg" value="client">Operations</option>
 
@@ -133,7 +133,7 @@ UPDATE account
                 echo '<thead>
                         <tr>
                             <th class="border-[2px] border-black border-solid w-[15%] ">ID</th>
-                            <th class="border-[2px] border-black border-solid w-[15%] ">Type</th>
+                            <th class="border-[2px] border-black border-solid w-[15%] ">Operation Type</th>
                             <th class="border-[2px] border-black border-solid w-[15%] ">Amount</th>
                             <th class="border-[2px] border-black border-solid w-[15%] ">Edit</th>
                             <th class="border-[2px] border-black border-solid w-[15%] ">Delete</th>
@@ -180,8 +180,8 @@ UPDATE account
                 echo '<thead>
                         <tr>
                         <th class="border-[2px] border-black border-solid w-[15%] ">ID</th>
-                            <th class="border-[2px] border-black border-solid w-[15%] ">RIB</th>
-                            <th class="border-[2px] border-black border-solid w-[15%] ">Balance</th>
+                            <th class="border-[2px] border-black border-solid w-[15%] ">Operation Type</th>
+                            <th class="border-[2px] border-black border-solid w-[15%] ">Amount</th>
                             <th class="border-[2px] border-black border-solid w-[15%] ">Edit</th>
                             <th class="border-[2px] border-black border-solid w-[15%] ">Delete</th>
                         </tr>
