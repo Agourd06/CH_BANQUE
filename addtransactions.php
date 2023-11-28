@@ -82,7 +82,7 @@ if (isset($_POST['edited'])) {
 
             <form action="addtransactions.php" method="post" class="flex flex-col gap-[19px] h-[70%] md:h-[80%] w-[80%] md:w-[30%] mb-[15px] p-[10px] bg-gray-300/20 items-center justify-center rounded-[20px]">
 
-                <h1 class="md:text-[45px] text-[35px] text-gray-900 font-bold">Accounts</h1>
+                <h1 class="md:text-[45px] text-[35px] text-gray-900 font-bold">Transactions</h1>
 
                 <input type="text" name="amount" placeholder=" Operation Amount" value="<?php echo isset($amount) ? $amount : ''; ?>" class="outline-none bg-gray-200 border border-black/50 border-solid md:h-[3rem] h-[2rem] p-[10px] w-[85%] rounded">
 

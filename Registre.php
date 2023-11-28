@@ -196,8 +196,8 @@
 
 
 
-                        <a href="adress.php"  class="bg-blue-500 hover:bg-blue-700 text-gray-900 font-bold py-2 px-4 w-[85%] text-center rounded cursor-pointer	">AJOUTER UNE ADRESS</a>
-                        <p>already have an account?<a class="text-blue-700" href="Login.php">login now</a></p>
+                        <a href="adress.php"  class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 w-[85%] rounded cursor-pointer text-center">AJOUTER UNE ADRESS</a>
+                        <p>already have an account?<a class="text-blue-700" href="index.php">login now</a></p>
 
 
 

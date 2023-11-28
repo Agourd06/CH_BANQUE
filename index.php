@@ -4,14 +4,14 @@ session_start();
 @include 'database.php';
 
 if (isset($_POST['submit'])) {
-    $email = mysqli_real_escape_string($conn, $_POST['email']);
+    $username = mysqli_real_escape_string($conn, $_POST['username']);
     $password = $_POST['password'];
 
-    $select = "SELECT u.*, r.rolename
-               FROM users u
-               INNER JOIN adress a ON u.userId = a.userid
-               INNER JOIN roleofuser r ON u.userId = r.userId
-               WHERE a.email = '$email'";
+    $select = "SELECT users.userid, roleofuser.rolename , roleofuser.userid , users.username ,users.pw
+               FROM users 
+               INNER JOIN roleofuser  ON users.userId = roleofuser.userId
+               WHERE users.username = '$username'";
+    
 
     $result = mysqli_query($conn, $select);
 
@@ -19,27 +19,37 @@ if (isset($_POST['submit'])) {
         if (mysqli_num_rows($result) > 0) {
             $row = mysqli_fetch_assoc($result);
 
-            // Check the password using password_verify
-            if (password_verify($password, $row['pw'])) {
+            // Check if the 'password' key exists in the $row array
+            if (isset($row['pw']) && password_verify($password, $row['pw'])) {
                 // Password is correct
+
+                // Check the user's role and redirect accordingly
                 $roleName = $row['rolename'];
                 $_SESSION['user_type'] = $roleName;
-            
-                header("Location: Registre.php");
+
+                if ($roleName === 'admin') {
+                    header("Location: banques.php");
+                } elseif ($roleName === 'client') {
+                    header("Location: home.php");
+                } else {
+                    // Handle other roles as needed
+                }
+
                 exit();
             } else {
-                $error[] = 'Incorrect email or password!';
+                $error[] = 'Incorrect username or password!';
             }
-            
-            
         } else {
-            $error[] = 'Incorrect email or password!';
+            $error[] = 'Incorrect username or password!';
         }
     } else {
         $error[] = 'Database query error: ' . mysqli_error($conn);
     }
 }
+
 ?>
+
+
 
 
 
@@ -85,7 +95,7 @@ if (!empty($error)) {
             <h1 class="md:text-[45px] text-[35px] text-gray-900 font-bold		">LOGIN</h1>
 
             
-            <input type="email" name="email" required placeholder="Enter Your E-mail" class ="outline-none	bg-gray-200 border border-black/50 border-solid md:h-[3rem] h-[2rem] p-[10px] w-[85%] rounded">
+            <input type="text" name="username" required placeholder="Enter Your Username" class ="outline-none	bg-gray-200 border border-black/50 border-solid md:h-[3rem] h-[2rem] p-[10px] w-[85%] rounded">
             <input type="password" name="password" required placeholder="Enter Your password" class ="outline-none	bg-gray-200 border border-black/50 border-solid md:h-[3rem] h-[2rem] w-[85%] p-[10px] rounded">
            
           

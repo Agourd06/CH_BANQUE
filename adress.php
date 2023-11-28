@@ -124,7 +124,7 @@ if (isset($_POST['user_ids']) && $_POST['edited'] === 'Edit') {
                     </select>
                 </div>
 
-                <input type="submit" name="submit" value="ADD USER" class="bg-blue-500 hover:bg-blue-700 text-gray-900 font-bold py-2 px-4 w-[85%] rounded cursor-pointer">
+                <input type="submit" name="submit" value="ADD USER" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 w-[85%] rounded cursor-pointer">
             </form>
 
 

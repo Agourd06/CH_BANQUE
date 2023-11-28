@@ -1,29 +1,27 @@
 <?php
- @ include "DataBase.php";
+@include "DataBase.php";
 
- 
- // Handle Delete action
- if (isset($_POST['deleteagency']) && isset($_POST['delete'])) 
-    {
-     $id = $_POST['delete'];
- 
-     // Delete associated records in the 'agency' table
-     $deleteAdress = "DELETE FROM adress WHERE agencyId = $id";
-     if ($conn->query($deleteAdress) !== TRUE) {
-         echo "Error deleting address: " . $conn->error;
-     }
-     
-     // Delete the record from the 'agency' table
-     $deleteAgencies = "DELETE FROM agency WHERE agencyId = $id";
-     if ($conn->query($deleteAgencies) !== TRUE) {
-         echo "Error deleting agency: " . $conn->error;
-     }
-     
- }
- 
 
- ?>
- 
+// Handle Delete action
+if (isset($_POST['deleteagency']) && isset($_POST['delete'])) {
+    $id = $_POST['delete'];
+
+    // Delete associated records in the 'agency' table
+    $deleteAdress = "DELETE FROM adress WHERE agencyId = $id";
+    if ($conn->query($deleteAdress) !== TRUE) {
+        echo "Error deleting address: " . $conn->error;
+    }
+
+    // Delete the record from the 'agency' table
+    $deleteAgencies = "DELETE FROM agency WHERE agencyId = $id";
+    if ($conn->query($deleteAgencies) !== TRUE) {
+        echo "Error deleting agency: " . $conn->error;
+    }
+}
+
+
+?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -44,22 +42,48 @@
 
 <body>
     <section class="min-h-[95vh] w-[100vw] bg-white bg-cover">
-        <header class="navbr w-[100%] h-[10vh]">
-            <!-- Navigation bar goes here -->
-            <nav class="h-[100%] flex gap-4 justify-center text-white items-center">
-                <a href="index.php" class="hover:text-gray-200">Home</a>
-                <a href="client.php" class="hover:text-gray-200">Client</a>
-                <a href="compts.php" class="hover:text-gray-200">Compts</a>
-                <a href="transaction.php" class="hover:text-gray-200">Transactions</a>
+    <header class="header sticky w-[100%] top-0 bg-white shadow-md flex items-center justify-between px-8 py-02 z-50 mb-[10vh]	">
+            <!-- logo -->
+            <a href="" class = "flex items-center font-bold	gap-[7px]">
+                <img src="images/cihlogo.png" alt="" class="md:h-[50px] md:w-[140px] h-[35px] w-[90px]">
+                ADMIN
+            </a>
+            <!-- navigation -->
+            <nav class="nav font-semibold w-[100%] text-lg">
+                <ul class="flex items-center w-[100%] justify-center  ">
+                    <li class="p-4 border-b-2 border-green-500 border-opacity-0 hover:border-opacity-100 hover:text-green-500 duration-200 cursor-pointer active">
+                        <a href="">Home</a>
+                    </li>
+                    <li class="p-4 border-b-2 border-green-500 border-opacity-0 hover:border-opacity-100 hover:text-green-500 duration-200 cursor-pointer">
+                    <select name="clients" id="selectOption" class="outline-none rounded">
+                    <option class="font-semibold text-lg" value="Banks">Locations</option>
+
+                        <option class="font-semibold text-lg" value="Banks">Banks</option>
+                        <option class="font-semibold text-lg" value="agency">agency</option>
+                        <option class="font-semibold text-lg" value="ATM">ATM</option>
+                    </select>
+                </li>
+            
+                <li class="p-4 border-b-2 border-green-500 border-opacity-0 hover:border-opacity-100 hover:text-green-500 duration-200 cursor-pointer">
+                    <select name="clients" id="selectOptions" class="outline-none rounded">
+                    <option class="font-semibold text-lg" value="client">Operations</option>
+
+                        <option class="font-semibold text-lg" value="client">Users</option>
+                        <option class="font-semibold text-lg" value="accounts">accounts</option>
+                        <option class="font-semibold text-lg" value="transactions">transactions</option>
+                    </select>
+                    </li>
+                </ul>
             </nav>
+         
         </header>
 
 
-        <div class="flex justify-evenly items-center">
-   <h1 class="text-[55px] h-[10%] mb-[20px] text-center text-black">Agency</h1>
-   <a href="addagency.php" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded">Add Agency</a>
+        <div class="flex justify-evenly items-center mb-[50px]">
+            <h1 class="text-[50px] h-[10%]  text-center text-black">AGENCIES</h1>
+            <a href="addagency.php" class="bg-blue-400 hover:bg-blue-600 text-white font-bold py-2 px-4 border border-blue-600 rounded">ADD AGENCIES</a>
 
-   </div>
+        </div>
         <?php
         // Check if the 'submit' and 'bankid' are set, indicating that the form is submitted
         if (isset($_POST['submit']) && isset($_POST['bankid'])) {
@@ -106,8 +130,8 @@
 
                             <td class='border-[2px] border-black border-solid '>
                             <form action='addagency.php' method='post'  class = 'h-[5vh]  cursor-pointer width-[150px] hover:bg-black bg-white hover:text-white text-black''>
-                            <input type='hidden' name='operation' value='" . $row["agencyId"]. "'>
-                            <input type='hidden' name='agencyid' value='" . $row["agencyId"]. "'>
+                            <input type='hidden' name='operation' value='" . $row["agencyId"] . "'>
+                            <input type='hidden' name='agencyid' value='" . $row["agencyId"] . "'>
                             <input type='submit'  name='editing' value='Edit'>
                         </form>
                         
@@ -115,7 +139,7 @@
                        
                                 <td class='border-[2px] border-black border-solid '>
                             <form action='users.php' method='post'  class = 'h-[5vh]  cursor-pointer width-[150px] hover:bg-black bg-white hover:text-white text-black'>
-                                <input type='hidden' name='agencyId' value='" . $row["agencyId"]. "'>
+                                <input type='hidden' name='agencyId' value='" . $row["agencyId"] . "'>
                                 <input type='submit'  name='users' value='Users'>
                             </form>
                         </td>  
@@ -136,7 +160,7 @@
             // Fetch data for 'compts' table
             $sqlall = "SELECT * FROM `agency`";
             $result2 = $conn->query($sqlall);
-        
+
             if ($result2->num_rows > 0) {
                 echo '<table class="leading-9  w-[100%] text-center h-[7vh] items-start text-black">';
                 echo '<thead>
@@ -152,7 +176,7 @@
                         </tr>
                     </thead>';
                 while ($row = $result2->fetch_assoc()) {
-                
+
                     echo "<tr>
                             <td class='border-[2px] border-black border-solid '>" . $row["agencyId"] . " </td>
                             <td class='border-[2px] border-black border-solid '> " . $row["longitude"] . "</td>
@@ -171,8 +195,8 @@
                                
                             <td class='border-[2px] border-black border-solid '>
                             <form action='addagency.php' method='post' class='height-[100%] cursor-pointer width-[100%] hover:bg-black bg-white hover:text-white text-black'>
-                            <input type='hidden' name='operation' value='" . $row["agencyId"]. "'>
-                            <input type='hidden' name='agencyid' value='" . $row["agencyId"]. "'>
+                            <input type='hidden' name='operation' value='" . $row["agencyId"] . "'>
+                            <input type='hidden' name='agencyid' value='" . $row["agencyId"] . "'>
                             <input type='submit'  name='editing' value='Edit'>
                         </form>
                         
@@ -190,13 +214,17 @@
                 echo "<p class='text-center'>0 results</p>";
             }
         }
-            $conn->close();
-            ?>
+        $conn->close();
+        ?>
     </section>
 
     <footer class="text-center h-[5vh] text-white bg-black flex items-center justify-center">
-        <h2 >Copyright © 2030 Hashtag Developer. All Rights Reserved</h2>
+        <h2>Copyright © 2030 Hashtag Developer. All Rights Reserved</h2>
     </footer>
+    <script src="main.js">
+
+    </script>
+
 </body>
 
 </html>
