@@ -17,21 +17,36 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 var selectElement = document.getElementById('selectOption');
 var selectElement1 = document.getElementById('selectOptions');
+var clientSelect = document.getElementById('clientSelect');
 
 // Add an event listener to handle option selection
-selectElement.addEventListener('change', function() {
+clientSelect.addEventListener('change', function() {
 // Get the selected option value
-var selectedOption = selectElement.value;
+var selectedOption = clientSelect.value;
 
 // Redirect to the selected page
-if (selectedOption === 'Banks') {
-    window.location.href = 'banques.php';
-}else if (selectedOption === 'agency') {
-    window.location.href = 'agences.php';
- }else if (selectedOption === 'ATM') {
-    window.location.href = 'ATM.php';
-}
+if (selectedOption === 'clientinfo') {
+    window.location.href = 'clients.php';
+    } else if (selectedOption === 'clientaccounts') {
+    window.location.href = 'comptsclient.php';
+    } else if (selectedOption === 'clienttransactions') {
+    window.location.href = 'transactionsclient.php';
+    }
 });
+
+selectElement.addEventListener('change', function() {
+    // Get the selected option value
+    var selectedOption = selectElement.value;
+    
+    // Redirect to the selected page
+    if (selectedOption === 'Banks') {
+        window.location.href = 'banques.php';
+    }else if (selectedOption === 'agency') {
+        window.location.href = 'agences.php';
+     }else if (selectedOption === 'ATM') {
+        window.location.href = 'ATM.php';
+    }
+    });
 
 
 
@@ -49,3 +64,12 @@ if (selectedOption === 'Banks') {
                 window.location.href = 'clients.php';
                 }
         });
+
+
+
+        // --------------------------------regex------------------------------------
+
+
+   
+
+

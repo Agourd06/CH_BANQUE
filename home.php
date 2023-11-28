@@ -109,44 +109,36 @@
    
     ?>
 
-<header class="header sticky w-[100%] top-0 bg-white shadow-md flex items-center justify-between px-8 py-02 z-50 	">
-            <!-- logo -->
-            <a href="">
-                <img src="images/cihlogo.png" alt="" class="md:h-[50px] md:w-[140px] h-[35px] w-[90px]">
-                
-            </a>
-            <!-- navigation -->
-            <nav class="nav font-semibold w-[100%] text-lg">
-                <ul class="flex items-center w-[100%] justify-center  ">
-                    <li class="p-4 border-b-2 border-green-500 border-opacity-0 hover:border-opacity-100 hover:text-green-500 duration-200 cursor-pointer active">
-                        <a href="">Home</a>
-                    </li>
-                    <li class="p-4 border-b-2 outline-none border-green-500 border-opacity-0 hover:border-opacity-100 hover:text-green-500 duration-200 cursor-pointer">
-                    <select name="clients" id="selectOption" class="border-none outline-none rounded">
-                    <option class="font-semibold text-lg" value="Banks">Locations</option>
+<header class="header sticky w-[100%] h-[8vh] top-0 bg-white shadow-md flex items-center justify-between px-8 py-02 z-50 	">
+        <!-- logo -->
+        <a href="">
+            <img src="images/cihlogo.png" alt="" class="md:h-[50px] md:w-[140px] h-[35px] w-[90px]">
 
-                        <option class="font-semibold text-lg" value="Banks">Banks</option>
-                        <option class="font-semibold text-lg" value="agency">agency</option>
-                        <option class="font-semibold text-lg" value="ATM">ATM</option>
+        </a>
+        <!-- navigation -->
+        <nav class="nav font-semibold w-[100%] text-lg">
+            <ul class="flex items-center w-[100%] justify-center  ">
+                <li class="p-4 border-b-2 border-green-500 border-opacity-0 hover:border-opacity-100 hover:text-green-500 duration-200 cursor-pointer active">
+                    <a href="#">Home</a>
+                </li>
+           
+
+                <li class="p-4 border-b-2 outline-none border-green-500 border-opacity-0 hover:border-opacity-100 hover:text-green-500 duration-200 cursor-pointer">
+                    <select name="clients" id="clientSelect" class="border-none outline-none rounded">
+                        <option class="font-semibold text-lg" value="client">Operations</option>
+
+                        <option class="font-semibold text-lg" value="clientinfo">My infos</option>
+                        <option class="font-semibold text-lg" value="clientaccounts">My accounts</option>
+                        <option class="font-semibold text-lg" value="clienttransactions">My Transactions</option>
                     </select>
                 </li>
-              
-                <li class="p-4 border-b-2 outline-none border-green-500 border-opacity-0 hover:border-opacity-100 hover:text-green-500 duration-200 cursor-pointer">
-                    <select name="clients" id="selectOptions" class="border-none outline-none rounded">
-                    <option class="font-semibold text-lg" value="client">Operations</option>
-
-                        <option class="font-semibold text-lg" value="clian">client</option>
-                        <option class="font-semibold text-lg" value="accounts">accounts</option>
-                        <option class="font-semibold text-lg" value="transactions">transactions</option>
-                    </select>
-                    </li> 
-                     <li class="p-4 border-b-2 border-green-500 border-opacity-0 hover:border-opacity-100 hover:text-green-500 duration-200 cursor-pointer">
+                <li class="p-4 border-b-2 border-green-500 border-opacity-0 hover:border-opacity-100 hover:text-green-500 duration-200 cursor-pointer">
                     <a href="">Contact</a>
                 </li>
-                </ul>
-            </nav>
+            </ul>
+        </nav>
 
-        </header>
+    </header>
 
     <section class="carousel-container">
         <div class="carousel-wrapper">
@@ -167,7 +159,7 @@
                  Consultez notre section de sécurité<br> pour en savoir plus sur les mesures que nous prenons<br> pour protéger vos comptes</p>
         </div>
         <div class=" text-center flex h-[100%] flex-col items-center gap-[65px] pt-[25px]">
-        <button type="button" class="text-white w-[200px] h-[50px] font-bold bg-gradient-to-r from-cyan-400 to-orange-300 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800  rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">Consulter Mes Données</button>
+        <a href="clients.php" class="text-white w-[200px] h-[50px] font-bold bg-gradient-to-r from-cyan-400 to-orange-300 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800  rounded-lg text-sm px-5 py-2.5 flex items-center text-center me-2 mb-2">Consulter Mes Données</a>
             <div class=" text-center flex  flex-col items-center gap-4" >
             <svg xmlns="http://www.w3.org/2000/svg" height="50" viewBox="0 -960 960 960" width="50"><path d="M200-280v-280h80v280h-80Zm240 0v-280h80v280h-80ZM80-120v-80h800v80H80Zm600-160v-280h80v280h-80ZM80-640v-80l400-200 400 200v80H80Zm178-80h444-444Zm0 0h444L480-830 258-720Z"/></svg>
             <h1 class="font-bold">Bienvenue chez CIH BANK!</h1>

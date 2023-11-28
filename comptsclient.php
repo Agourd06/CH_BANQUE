@@ -43,7 +43,7 @@ if (isset($_SESSION['username'])) {
 <body>
 
 
-    <header class="header sticky w-[100%] h-[8vh] top-0 bg-white shadow-md flex items-center justify-between px-8 py-02 z-50 	">
+<header class="header sticky w-[100%] h-[8vh] top-0 bg-white shadow-md flex items-center justify-between px-8 py-02 z-50 	">
         <!-- logo -->
         <a href="">
             <img src="images/cihlogo.png" alt="" class="md:h-[50px] md:w-[140px] h-[35px] w-[90px]">
@@ -53,29 +53,21 @@ if (isset($_SESSION['username'])) {
         <nav class="nav font-semibold w-[100%] text-lg">
             <ul class="flex items-center w-[100%] justify-center  ">
                 <li class="p-4 border-b-2 border-green-500 border-opacity-0 hover:border-opacity-100 hover:text-green-500 duration-200 cursor-pointer active">
-                    <a href="">Home</a>
+                    <a href="home.php">Home</a>
                 </li>
-                <li class="p-4 border-b-2 outline-none border-green-500 border-opacity-0 hover:border-opacity-100 hover:text-green-500 duration-200 cursor-pointer">
-                    <select name="clients" id="selectOption" class="border-none outline-none rounded">
-                        <option class="font-semibold text-lg" value="Banks">Locations</option>
-
-                        <option class="font-semibold text-lg" value="Banks">Banks</option>
-                        <option class="font-semibold text-lg" value="agency">agency</option>
-                        <option class="font-semibold text-lg" value="ATM">ATM</option>
-                    </select>
-                </li>
+           
 
                 <li class="p-4 border-b-2 outline-none border-green-500 border-opacity-0 hover:border-opacity-100 hover:text-green-500 duration-200 cursor-pointer">
-                    <select name="clients" id="selectOptions" class="border-none outline-none rounded">
+                    <select name="clients" id="clientSelect" class="border-none outline-none rounded">
                         <option class="font-semibold text-lg" value="client">Operations</option>
 
-                        <option class="font-semibold text-lg" value="clian">client</option>
-                        <option class="font-semibold text-lg" value="accounts">accounts</option>
-                        <option class="font-semibold text-lg" value="transactions">transactions</option>
+                        <option class="font-semibold text-lg" value="clientinfo">My infos</option>
+                        <option class="font-semibold text-lg" value="clientaccounts">My accounts</option>
+                        <option class="font-semibold text-lg" value="clienttransactions">My Transactions</option>
                     </select>
                 </li>
                 <li class="p-4 border-b-2 border-green-500 border-opacity-0 hover:border-opacity-100 hover:text-green-500 duration-200 cursor-pointer">
-                    <a href="">Contact</a>
+                    <a href="ContactUs.php">Contact</a>
                 </li>
             </ul>
         </nav>
@@ -147,6 +139,9 @@ if (isset($_SESSION['username'])) {
             </div>
         </section>
     </section>
+    <script src="main.js">
+
+</script>
 </body>
 
 </html>
