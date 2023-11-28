@@ -52,12 +52,12 @@ if (isset($_SESSION['username'])) {
         <!-- navigation -->
         <nav class="nav font-semibold w-[100%] text-lg">
             <ul class="flex items-center w-[100%] justify-center  ">
-                <li class="p-4 border-b-2 border-green-500 border-opacity-0 hover:border-opacity-100 hover:text-green-500 duration-200 cursor-pointer active">
+                <li class="p-4 border-b-2 border-blue-500 border-opacity-0 hover:border-opacity-100 hover:text-blue-500 duration-200 cursor-pointer active">
                     <a href="home.php">Home</a>
                 </li>
            
 
-                <li class="p-4 border-b-2 outline-none border-green-500 border-opacity-0 hover:border-opacity-100 hover:text-green-500 duration-200 cursor-pointer">
+                <li class="p-4 border-b-2 outline-none border-blue-500 border-opacity-0 hover:border-opacity-100 hover:text-blue-500 duration-200 cursor-pointer">
                     <select name="clients" id="clientSelect" class="border-none outline-none rounded">
                         <option class="font-semibold text-lg outline-none" value="client">Operations</option>
 
@@ -66,9 +66,12 @@ if (isset($_SESSION['username'])) {
                         <option class="font-semibold text-lg outline-none" value="clienttransactions">My Transactions</option>
                     </select>
                 </li>
-                <li class="p-4 border-b-2 border-green-500 border-opacity-0 hover:border-opacity-100 hover:text-green-500 duration-200 cursor-pointer">
+                <li class="p-4 border-b-2 border-blue-500 border-opacity-0 hover:border-opacity-100 hover:text-blue-500 duration-200 cursor-pointer">
                     <a href="">Contact</a>
                 </li>
+                <li class="p-4 border-b-2 border-blue-500 border-opacity-0 hover:border-opacity-100 hover:text-blue-500 duration-200 cursor-pointer">
+                    <a href="index.php" class="bg-blue-400 hover:bg-blue-600 text-white font-bold py-2 px-4 border border-blue-600 rounded">Log Out</a>
+                    </li>
             </ul>
         </nav>
 
@@ -130,7 +133,7 @@ if (isset($_SESSION['username'])) {
                 ' . $row['familyName'] . '
                 </td>
                 <td class="px-6 py-4">
-                    <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Show</a>
+                    <a href="comptsclient.php" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Show</a>
                 </td>
                 
             </tr>';

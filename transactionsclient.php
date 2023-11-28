@@ -45,20 +45,18 @@ if (isset($_SESSION['username'])) {
 
 
 <header class="header sticky w-[100%] h-[8vh] top-0 bg-white shadow-md flex items-center justify-between px-8 py-02 z-50 	">
-        <!-- logo -->
         <a href="">
             <img src="images/cihlogo.png" alt="" class="md:h-[50px] md:w-[140px] h-[35px] w-[90px]">
 
         </a>
-        <!-- navigation -->
         <nav class="nav font-semibold w-[100%] text-lg">
             <ul class="flex items-center w-[100%] justify-center  ">
-                <li class="p-4 border-b-2 border-green-500 border-opacity-0 hover:border-opacity-100 hover:text-green-500 duration-200 cursor-pointer active">
+                <li class="p-4 border-b-2 border-blue-500 border-opacity-0 hover:border-opacity-100 hover:text-blue-500 duration-200 cursor-pointer active">
                     <a href="home.php">Home</a>
                 </li>
            
 
-                <li class="p-4 border-b-2 outline-none border-green-500 border-opacity-0 hover:border-opacity-100 hover:text-green-500 duration-200 cursor-pointer">
+                <li class="p-4 border-b-2 outline-none border-blue-500 border-opacity-0 hover:border-opacity-100 hover:text-blue-500 duration-200 cursor-pointer">
                     <select name="clients" id="clientSelect" class="border-none outline-none rounded">
                         <option class="font-semibold text-lg outline-none" value="client">Operations</option>
 
@@ -67,16 +65,19 @@ if (isset($_SESSION['username'])) {
                         <option class="font-semibold text-lg outline-none" value="clienttransactions">My Transactions</option>
                     </select>
                 </li>
-                <li class="p-4 border-b-2 border-green-500 border-opacity-0 hover:border-opacity-100 hover:text-green-500 duration-200 cursor-pointer">
+                <li class="p-4 border-b-2 border-blue-500 border-opacity-0 hover:border-opacity-100 hover:text-blue-500 duration-200 cursor-pointer">
                     <a href="">Contact</a>
                 </li>
+                <li class="p-4 border-b-2 border-blue-500 border-opacity-0 hover:border-opacity-100 hover:text-blue-500 duration-200 cursor-pointer">
+                    <a href="index.php" class="bg-blue-400 hover:bg-blue-600 text-white font-bold py-2 px-4 border border-blue-600 rounded">Log Out</a>
+                    </li>
             </ul>
         </nav>
 
     </header>
     <section class = 'bg h-[92vh]'>
         <div class=' texto w-[40vw] h-[20vh] flex flex-row justify-center items-center gap-[10px]'>
-            <h1 class="text-[30px] font-bold">Here Is Your Accounts : </h1>
+            <h1 class="text-[30px] font-bold">Here Is Your Transactions : </h1>
             <p class="text-[30px] font-bold"> <?php echo $userData1; ?> !</p>
         </div>
         <section class="h-[20vh] flex items-center w-[100%] ">

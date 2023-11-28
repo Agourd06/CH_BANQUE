@@ -135,6 +135,9 @@
                 <li class="p-4 border-b-2 border-blue-500 border-opacity-0 hover:border-opacity-100 hover:text-blue-500 duration-200 cursor-pointer">
                     <a href="ContactUs.php">Contact</a>
                 </li>
+                <li class="p-4 border-b-2 border-blue-500 border-opacity-0 hover:border-opacity-100 hover:text-blue-500 duration-200 cursor-pointer">
+                    <a href="index.php" class="bg-blue-400 hover:bg-blue-600 text-white font-bold py-2 px-4 border border-blue-600 rounded">Log Out</a>
+                    </li>
             </ul>
         </nav>
 
@@ -162,7 +165,7 @@
         <a href="clients.php" class="text-white w-[200px] h-[50px] font-bold bg-gradient-to-r from-cyan-400 to-orange-300 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800  rounded-lg text-sm px-5 py-2.5 flex items-center text-center me-2 mb-2">Consulter Mes Données</a>
             <div class=" text-center flex  flex-col items-center gap-4" >
             <svg xmlns="http://www.w3.org/2000/svg" height="50" viewBox="0 -960 960 960" width="50"><path d="M200-280v-280h80v280h-80Zm240 0v-280h80v280h-80ZM80-120v-80h800v80H80Zm600-160v-280h80v280h-80ZM80-640v-80l400-200 400 200v80H80Zm178-80h444-444Zm0 0h444L480-830 258-720Z"/></svg>
-            <h1 class="font-bold">Bienvenue chez CIH BANK!</h1>
+            <h1 class="font-bold">Welcome to chez CIH BANK!</h1>
             <p>Nous sommes ravis de vous accueillir. Explorez nos <br> services bancaires en ligne et
                  découvrez comment nous pouvons<br>  simplifier votre gestion financière.</p>
                 </div>
@@ -175,23 +178,25 @@
     </section>
     <section class="h-[90vh]">
         
-        <div class=" flex items-center justify-evenly">
+        <div class=" flex items-center justify-between">
             <div class=" pr-8">
-            <h1 class=" text-3xl font-bold"> &emsp;"Blossoming Beauty:<br> &emsp;Explore the Exquisite Services of O'PEP<br>&emsp;Nursery"
-        </h1>
-                <p>&emsp;Immerse yourself in a world where every seed is a promise, every bud <br>
-                &emsp;is a work of art in the making.At O'PEP Nursery, we invite you to discover<br>
-                &emsp;exceptional horticultural services crafted to reveal the splendor of <br>
-                &emsp;nature in your space.Welcome to our floral kingdom, where excellence grows<br>
-                &emsp;at every step of your gardening journey.Our dedicated team of horticultural<br>
-                &emsp;experts is here to guide you, from the meticulous selection of plants to the<br>
-                &emsp;creation of a garden that tells your story. Exotic plants, elegant shrubs,<br>
-                &emsp;eachvariety has been carefully chosen to brighten your outdoor world.Let our<br>
-                &emsp;tailor-made landscaping services transform your dreams into reality. Unique <br>
-                &emsp;designs that captivate, outdoor spaces that enchant – that's our promise.</p>
+            <h1 class=" text-3xl font-bold">&emsp;&ensp;"Banking Brilliance:<br>&emsp;&ensp;Experience the Exceptional Services of CIH Bank<br>&emsp;&ensp;Innovation Hub"
+</h1>
+<p>&emsp;&emsp; Immerse yourself in a world where every transaction is a commitment, every financial move <br>
+ &emsp;&emsp;is a strategic step towards your goals. At CIH Bank, we invite you to discover<br>
+&emsp;&emsp; exceptional financial services crafted to reveal the brilliance of <br>
+&emsp;&emsp; your financial landscape. Welcome to our banking kingdom, where excellence grows<br>
+&emsp;&emsp; at every step of your financial journey. Our dedicated team of banking<br>
+&emsp;&emsp; experts is here to guide you, from the meticulous management of your accounts to the<br>
+&emsp;&emsp; creation of a financial plan that tells your story. Secure investments, innovative solutions,<br>
+ &emsp;&emsp;each service has been carefully chosen to enhance your financial world. Let our<br>
+&emsp;&emsp; tailor-made banking services transform your financial dreams into reality. Unique <br>
+&emsp;&emsp; strategies that captivate, financial solutions that enchant – that's our promise.</p>
             </div>
+
+            
             <div>
-                <img src="./images/aboutus.png" alt="">
+                <img class="h-[70vh]" src="./images/picture1.jpg" alt="">
             </div>
         </div>
     </section>
@@ -201,20 +206,29 @@
         
         <div class=" flex items-center justify-between">
             <div>
-                <img src="./images/aboutus.png" alt="">
+                <img class="h-[70vh]" src="./images/picture2.jpg" alt="">
             </div>
             <div class=" pr-8">
-            <h1 class=" text-3xl font-bold">&emsp; "O'PEP: Cultivating Heritage, Blooming <br>&emsp;Beauty"</h1>
-                <p>&emsp;&emsp;Let's delve into the history of O'PEP Nursery, a journey rooted in deep<br>
-                &emsp;&emsp;family passion. For decades,our commitment to nature has grown, with each<br>
-                &emsp;&emsp;plant carrying the legacy of our roots. Our humble beginnings were lessons<br>
-                &emsp;&emsp;learned, gradually shaping a collection of rare and exotic plants. Our <br>
-                &emsp;&emsp;reputation blossomed, attracting gardening enthusiasts from around the <br>
-                &emsp;&emsp;world. The new millennium brought an era of customized landscaping services,<br> 
-                &emsp;&emsp;transforming ordinary outdoor spaces into exceptional havens. Today, O'PEP <br>
-                &emsp;&emsp;Nursery evolves with unwavering passion, celebrating the continuous flourishing<br> 
-                &emsp;&emsp;of nature and beauty. Join us in this botanical story, where each leaf tells <br>
-                &emsp;&emsp;the living narrative of O'PEP Nursery.</p>
+            <h1 class=" text-3xl font-bold mr-[6rem]">"CIH Bank: Nurturing Legacy, Unveiling <br>Excellence"</h1><br>
+Plunge into the rich history of CIH Bank, a journey deeply rooted in<br>
+familial devotion. For generations, our dedication to financial excellence has<br>
+flourished, with each transaction carrying the legacy of our financial heritage. Our<br>
+modest beginnings were valuable lessons, gradually cultivating a portfolio of<br>
+innovative financial solutions. Our reputation soared, attracting clients from across<br>
+the globe. The dawn of the new millennium ushered in an era of bespoke banking<br>
+services, transforming ordinary financial spaces into extraordinary havens. Today,<br>
+CIH Bank evolves with an unwavering commitment, celebrating the continual<br>
+flourishing of financial prosperity and excellence. Immerse yourself in this financial<br>
+narrative, where each transaction contributes to the living legacy of CIH Bank.<br>
+CIH Bank evolves with an unwavering commitment, celebrating the continual<br>
+flourishing of financial prosperity and excellence. Immerse yourself in this financial<br>
+narrative, where each transaction contributes to the living legacy of CIH Bank.</p>
+
+
+
+
+
+
             </div>
 
         </div>
@@ -223,7 +237,26 @@
 
     </section>
 
-
+    <section>
+        <h1 class="mb-4 text-5xl font-extrabold leading-none tracking-tight text-center py-8">Satisfied customers</h1>
+        <div class=" flex justify-evenly">
+            <div class=" h-[52vh] w-[24vw] bg-gradient-to-b  from-gray-100 to-gray-300  rounded-md shadow-md text-center">
+                <img class="rounded-full h-[28vh] w-[14vw] mx-auto p-2" src="./images/salma.png" alt="feedback">
+                <p class="font-light	w-[85%] m-auto ">"The CIH bank has proven to be an exceptionally convenient choice for my banking needs, and the team has been incredibly friendly and helpful. and I won't hesitate to use their services again in the future. Thank you, CIH"</p>
+                <p class="font-bold text-orange-500">Salma M.</p>
+            </div>
+            <div class="h-[52vh] w-[24vw] bg-gradient-to-b from-gray-100 to-gray-300  rounded-md shadow-md text-center">
+                <img class="rounded-full h-[28vh] w-[14vw] mx-auto p-2" src="./images/adam.png" alt="feedback">
+                <p class="font-light	w-[85%] m-auto ">"The CIH bank has proven to be an exceptionally convenient choice for my banking needs, and the team has been incredibly friendly and helpful. and I won't hesitate to use their services again in the future. Thank you, CIH"</p>
+                <p class="font-bold text-orange-500">Adam L.</p>
+            </div>
+            <div class="h-[52vh] w-[24vw] bg-gradient-to-b  from-gray-100 to-gray-300  rounded-md shadow-md text-center">
+                <img class="rounded-full h-[28vh] w-[14vw] mx-auto p-2" src="./images/salim.png" alt="feedback">
+                <p class="font-light	w-[85%] m-auto ">"The CIH bank has proven to be an exceptionally convenient choice for my banking needs, and the team has been incredibly friendly and helpful. and I won't hesitate to use their services again in the future. Thank you, CIH"</p>
+                <p class="font-bold text-orange-500">Salim G.</p>
+            </div>
+        </div>
+    </section>
 
     <section class="py-16 max-w-full ">
         <div class="bg-blue-400 h-64 items-center ">
@@ -254,22 +287,18 @@
             <h1 class="mb-4 text-5xl font-extrabold leading-none tracking-tight text-center py-4 ">Frequently Asked
                 Questions</h1>
             <div class="faqq mx-auto">
-                <div class="question">Comment fonctionne la location de voiture ?<button class="toggle">+</button></div>
-                <div class="reponse text-gray-500">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis
-                    est deleniti,
-                    animi numquam culpa vero soluta perspiciatis amet pariatur, libero, facere perferendis aspernatur?
-                    Possimus, rem. Consectetur in laboriosam officia aut.</div>
+                <div class="question">How can I open a bank account with CIH?
+
+<button class="toggle">+</button></div>
+                <div class="reponse text-gray-500"> To open a bank account with CIH, you can visit one of our branches with a valid ID, proof of address, and other required documents. Our agents will be happy to guide you through the process.</div>
             </div>
             <div class="faqq mx-auto">
-                <div class="question">Quels sont les types de voitures disponibles à la location ?<button
+                <div class="question">What are the benefits of having a savings account with CIH?<button
                         class="toggle">+</button></div>
-                <div class="reponse text-gray-500">Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem odio
-                    deleniti
-                    voluptate, mollitia enim est quaerat culpa adipisci excepturi veritatis itaque ad officiis, sint
-                    animi, voluptatibus maxime minima sapiente corrupti!</div>
+                <div class="reponse text-gray-500"> CIH savings accounts offer competitive interest rates and flexible options. You also get easy access to your funds, secure online management, and various benefits through our loyalty program.</div>
             </div>
             <div class="faqq mx-auto">
-                <div class="question">Où puis-je louer une voiture dans ma ville ?<button class="toggle">+</button>
+                <div class="question">How can I access my account statements online?<button class="toggle">+</button>
                 </div>
                 <div class="reponse text-gray-500">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Rerum
                     itaque facere amet
@@ -277,7 +306,7 @@
                     quibusdam iure soluta perspiciatis.</div>
             </div>
             <div class="faqq mx-auto">
-                <div class="question">Quelles sont les exigences d'âge pour louer une voiture ?<button
+                <div class="question">What real estate financing options does CIH offer?<button
                         class="toggle">+</button></div>
                 <div class="reponse text-gray-500">Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam
                     corporis, in cumque
@@ -285,7 +314,7 @@
                     veritatis enim unde esse consectetur.</div>
             </div>
             <div class="faqq mx-auto">
-                <div class="question">Quels documents ai-je besoin de fournir pour louer une voiture ?<button
+                <div class="question">How do I report a lost or stolen credit card?<button
                         class="toggle">+</button></div>
                 <div class="reponse text-gray-500">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus
                     ullam in
@@ -293,7 +322,7 @@
                     quaerat vitae, voluptas velit hic.</div>
             </div>
             <div class="faqq mx-auto">
-                <div class="question">Quels sont les tarifs de location de voitures et les options de paiement ?<button
+                <div class="question">What online banking services are available at CIH?<button
                         class="toggle">+</button></div>
                 <div class="reponse text-gray-500">Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque,
                     quaerat enim unde
@@ -309,96 +338,40 @@
     <link rel="stylesheet"
         href="https://demos.creative-tim.com/notus-js/assets/vendor/@fortawesome/fontawesome-free/css/all.min.css">
 
-    <footer class="relative bg-blueGray-200 pt-8 pb-6">
-        <div class="container mx-auto px-4">
-            <div class="flex flex-wrap text-left lg:text-left">
-                <div class="w-full lg:w-6/12 px-4">
-                    <h4 class="text-3xl fonat-semibold text-blueGray-700">Let's keep in touch!</h4>
-                    <h5 class="text-lg mt-0 mb-2 text-blueGray-600">
-                        Find us on any of these platforms, we respond 1-2 business days.
-                    </h5>
-                    <div class="mt-6 lg:mb-0 mb-6">
-                        <button
-                            class="bg-white text-lightBlue-400 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
-                            type="button">
-                            <i class="fab fa-twitter"></i></button><button
-                            class="bg-white text-lightBlue-600 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
-                            type="button">
-                            <i class="fab fa-facebook-square"></i></button><button
-                            class="bg-white text-pink-400 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
-                            type="button">
-                            <i class="fab fa-dribbble"></i></button><button
-                            class="bg-white text-blueGray-800 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
-                            type="button">
-                            <i class="fab fa-github"></i>
-                        </button>
-                    </div>
-                </div>
-                <div class="w-full lg:w-6/12 px-4">
-                    <div class="flex flex-wrap items-top mb-6">
-                        <div class="w-full lg:w-4/12 px-4 ml-auto">
-                            <span class="block uppercase text-blueGray-500 text-sm font-semibold mb-2">Useful
-                                Links</span>
-                            <ul class="list-unstyled">
-                                <li>
-                                    <a class="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm"
-                                        href="https://www.creative-tim.com/presentation?ref=njs-profile">About Us</a>
-                                </li>
-                                <li>
-                                    <a class="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm"
-                                        href="https://blog.creative-tim.com?ref=njs-profile">Blog</a>
-                                </li>
-                                <li>
-                                    <a class="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm"
-                                        href="https://www.github.com/creativetimofficial?ref=njs-profile">Github</a>
-                                </li>
-                                <li>
-                                    <a class="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm"
-                                        href="https://www.creative-tim.com/bootstrap-themes/free?ref=njs-profile">Free
-                                        Products</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="w-full lg:w-4/12 px-4">
-                            <span class="block uppercase text-blueGray-500 text-sm font-semibold mb-2">Other
-                                Resources</span>
-                            <ul class="list-unstyled">
-                                <li>
-                                    <a class="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm"
-                                        href="https://github.com/creativetimofficial/notus-js/blob/main/LICENSE.md?ref=njs-profile">MIT
-                                        License</a>
-                                </li>
-                                <li>
-                                    <a class="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm"
-                                        href="https://creative-tim.com/terms?ref=njs-profile">Terms &amp; Conditions</a>
-                                </li>
-                                <li>
-                                    <a class="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm"
-                                        href="https://creative-tim.com/privacy?ref=njs-profile">Privacy Policy</a>
-                                </li>
-                                <li>
-                                    <a class="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm"
-                                        href="https://creative-tim.com/contact-us?ref=njs-profile">Contact Us</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <hr class="my-6 border-blueGray-300">
-            <div class="flex flex-wrap items-center md:justify-between justify-center">
-                <div class="w-full md:w-4/12 px-4 mx-auto text-center">
-                    <div class="text-sm text-blueGray-500 font-semibold py-1">
-                        Copyright © <span id="get-current-year">2021</span><a
-                            href="https://www.creative-tim.com/product/notus-js"
-                            class="text-blueGray-500 hover:text-gray-800" target="_blank"> Notus JS by
-                            <a href="https://www.creative-tim.com?ref=njs-profile"
-                                class="text-blueGray-500 hover:text-blueGray-800">Creative Tim</a>.
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
+        <footer class="bg-gray-900 h-[15vh]  shadow sm:flex sm:items-center sm:justify-between p-4 sm:p-6 xl:p-8 dark:bg-gray-800 antialiased">
+  <p class="mb-4 text-sm text-center text-gray-500 dark:text-gray-400 sm:mb-0">
+      &copy; 2023-2024 <a href="https://flowbite.com/" class="hover:underline" target="_blank">Flowbite.com</a>. All rights reserved.
+  </p>
+  <div class="flex justify-center items-center space-x-1">
+    <a href="#" data-tooltip-target="tooltip-facebook" class="inline-flex justify-center p-2 text-gray-500 rounded-lg cursor-pointer dark:text-gray-400 dark:hover:text-white hover:text-gray-900 hover:bg-gray-100 dark:hover:bg-gray-600">
+        <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 8 19">
+            <path fill-rule="evenodd" d="M6.135 3H8V0H6.135a4.147 4.147 0 0 0-4.142 4.142V6H0v3h2v9.938h3V9h2.021l.592-3H5V3.591A.6.6 0 0 1 5.592 3h.543Z" clip-rule="evenodd"/>
+        </svg>
+        <span class="sr-only">Facebook</span>
+    </a>
+    <div id="tooltip-facebook" role="tooltip" class="inline-block absolute invisible z-10 py-2 px-3 text-sm font-medium text-white bg-gray-900 rounded-lg shadow-sm opacity-0 transition-opacity duration-300 tooltip dark:bg-gray-700">
+        Like us on Facebook
+        <div class="tooltip-arrow" data-popper-arrow></div>
+    </div>
+    <a href="#" data-tooltip-target="tooltip-twitter" class="inline-flex justify-center p-2 text-gray-500 rounded-lg cursor-pointer dark:text-gray-400 dark:hover:text-white hover:text-gray-900 hover:bg-gray-100 dark:hover:bg-gray-600">
+        <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+            <path fill="currentColor" d="M12.186 8.672 18.743.947h-2.927l-5.005 5.9-4.44-5.9H0l7.434 9.876-6.986 8.23h2.927l5.434-6.4 4.82 6.4H20L12.186 8.672Zm-2.267 2.671L8.544 9.515 3.2 2.42h2.2l4.312 5.719 1.375 1.828 5.731 7.613h-2.2l-4.699-6.237Z"/>
+        </svg>
+        <span class="sr-only">Twitter</span>
+    </a>
+    <div id="tooltip-twitter" role="tooltip" class="inline-block absolute invisible z-10 py-2 px-3 text-sm font-medium text-white bg-gray-900 rounded-lg shadow-sm opacity-0 transition-opacity duration-300 tooltip dark:bg-gray-700">
+        Follow us on Twitter
+        <div class="tooltip-arrow" data-popper-arrow></div>
+    </div>
+    <a href="#" data-tooltip-target="tooltip-github" class="inline-flex justify-center p-2 text-gray-500 rounded-lg cursor-pointer dark:text-gray-400 dark:hover:text-white hover:text-gray-900 hover:bg-gray-100 dark:hover:bg-gray-600">
+   <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 30 30" fill="gray" width="21px" height="21px">    <path d="M 9.9980469 3 C 6.1390469 3 3 6.1419531 3 10.001953 L 3 20.001953 C 3 23.860953 6.1419531 27 10.001953 27 L 20.001953 27 C 23.860953 27 27 23.858047 27 19.998047 L 27 9.9980469 C 27 6.1390469 23.858047 3 19.998047 3 L 9.9980469 3 z M 22 7 C 22.552 7 23 7.448 23 8 C 23 8.552 22.552 9 22 9 C 21.448 9 21 8.552 21 8 C 21 7.448 21.448 7 22 7 z M 15 9 C 18.309 9 21 11.691 21 15 C 21 18.309 18.309 21 15 21 C 11.691 21 9 18.309 9 15 C 9 11.691 11.691 9 15 9 z M 15 11 A 4 4 0 0 0 11 15 A 4 4 0 0 0 15 19 A 4 4 0 0 0 19 15 A 4 4 0 0 0 15 11 z"/></svg>
+        <span class="sr-only">instagram</span>
+    </a>
+   
+  
+ 
+</div>
+</footer>
 
     <script src="main.js">
 

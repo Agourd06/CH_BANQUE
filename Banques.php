@@ -63,9 +63,7 @@ if (isset($_POST['Deletes']) && isset($_POST['bankid'])) {
             <!-- navigation -->
             <nav class="nav font-semibold w-[100%] text-lg">
                 <ul class="flex items-center w-[100%] justify-center  ">
-                    <li class="p-4 border-b-2 border-green-500 border-opacity-0 hover:border-opacity-100 hover:text-green-500 duration-200 cursor-pointer active">
-                        <a href="">Home</a>
-                    </li>
+                  
                     <li class="p-4 border-b-2 border-green-500 border-opacity-0 hover:border-opacity-100 hover:text-green-500 duration-200 cursor-pointer">
                     <select name="clients" id="selectOption" class="outline-none rounded">
                     <option class="font-semibold text-lg" value="Banks">Locations</option>
@@ -85,6 +83,9 @@ if (isset($_POST['Deletes']) && isset($_POST['bankid'])) {
                         <option class="font-semibold text-lg" value="transactions">transactions</option>
                     </select>
                     </li>
+                    <li class="p-4 border-b-2 border-blue-500 border-opacity-0 hover:border-opacity-100 hover:text-blue-500 duration-200 cursor-pointer">
+                    <a href="index.php" class="bg-blue-400 hover:bg-blue-600 text-white font-bold py-2 px-4 border border-blue-600 rounded">Log Out</a>
+                    </li>
                 </ul>
             </nav>
             <!-- buttons --->
@@ -100,10 +101,10 @@ if (isset($_POST['Deletes']) && isset($_POST['bankid'])) {
 
 
 
-        <table class="leading-9 w-[100%] text-black text-center">
+        <table class="leading-9 w-[100%]  text-black text-center">
             <thead class="text-black">
                 <tr>
-                    <th class="border-[2px] border-black border-solid w-[12%]">Logo</th>
+                    <th class="border-[2px] border-black border-solid w-[11%]">Logo</th>
                     <th class="border-[2px] border-black border-solid w-[12%]">Bank</th>
                     <th class="border-[2px] border-black border-solid w-[12%]">ID</th>
                     <th class="border-[2px] border-black border-solid w-[12%]">Edit</th>
@@ -112,7 +113,7 @@ if (isset($_POST['Deletes']) && isset($_POST['bankid'])) {
                     <th class="border-[2px] border-black border-solid w-[12%]">ATM</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody class = "h-[5vh]">
                 <?php
 
 
@@ -126,12 +127,12 @@ if (isset($_POST['Deletes']) && isset($_POST['bankid'])) {
 
                         $id = $row["bankid"];
                         echo "<tr>
-                    <td class='border-[2px] border-black border-solid '><img class='h-[60px] w-[240px]' src='" . $row["logo"] . "' alt=''></td>
+                    <td class='border-[2px] border-black border-solid '><img class='h-[33px] w-[200px]' src='" . $row["logo"] . "' alt=''></td>
                     <td class='border-[2px] border-black border-solid '>" . $row["name"] . "</td>
                     <td class='border-[2px] border-black border-solid '>" . $row["bankid"] . "</td>
                     <td class='border-[2px] border-black border-solid '>
                    
-                    <form action='addbank.php' method='post' class = 'h-[5vh]  cursor-pointer width-[150px] hover:bg-black bg-white hover:text-white text-black'>
+                    <form action='addbank.php' method='post' class = 'h-[5vh]  cursor-pointer width-[150px] hover:bg-blue-700 bg-blue-500 rounded-[4px] hover:text-white text-black'>
                     <input type='hidden' name='operation' value='" . $row["bankid"] . "'>
                     <input type='hidden' name='bankid' value='" . $row["bankid"] . "'>
                     <input type='submit'  value='Edit'>
@@ -143,20 +144,20 @@ if (isset($_POST['Deletes']) && isset($_POST['bankid'])) {
                 </td>
                 
                     <td class='border-[2px] border-black border-solid '>
-                    <form action='banques.php' method='post' class = 'h-[5vh]  cursor-pointer width-[150px] hover:bg-black bg-white hover:text-white text-black'>
+                    <form action='banques.php' method='post' class = 'h-[5vh]  cursor-pointer width-[150px] hover:bg-red-700 bg-red-500 hover:text-white text-black'>
                         <input type='hidden' name='bankid' value='" . $row["bankid"] . "'>
                         <input type='submit'  name='Deletes' value='Delete'>
                     </form>
                 </td>
                 
                     <td class='border-[2px] border-black border-solid '>
-                        <form action='agences.php' method='post' class = 'h-[5vh]  cursor-pointer width-[150px] hover:bg-black bg-white hover:text-white text-black'>
+                        <form action='agences.php' method='post' class='height-[80px] cursor-pointer w-[100%] hover:bg-gray-900 bg-black hover:text-white text-white '>
                             <input type='hidden' name='bankid' value='" . $row["bankid"] . "'>
                             <input type='submit'  name='submit' value='Agences'>
                         </form>
                     </td>
                     <td class='border-[2px] border-black border-solid '>
-                    <form action='ATM.php' method='post' class = 'h-[5vh]  cursor-pointer width-[150px] hover:bg-black bg-white hover:text-white text-black'>
+                    <form action='ATM.php' method='post' class='height-[80px] cursor-pointer w-[100%] hover:bg-gray-900 bg-black hover:text-white text-white '>
                         <input type='hidden' name='bankid' value='" . $row["bankid"] . "'>
                         <input type='submit'  name='submit' value='ATM'>
                     </form>

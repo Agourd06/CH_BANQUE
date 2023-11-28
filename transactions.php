@@ -62,7 +62,7 @@ UPDATE account
 
 <body>
     <section class="min-h-[95vh] w-[100vw] bg-gray-100 bg-cover">
-        <header class="header sticky w-[100%] top-0 bg-white shadow-md flex items-center justify-between px-8 py-02 z-50 mb-[10vh]	">
+    <header class="header sticky w-[100%] top-0 bg-white shadow-md flex items-center justify-between px-8 py-02 z-50 mb-[10vh]	">
             <!-- logo -->
             <a href="" class = "flex items-center font-bold	gap-[7px]">
                 <img src="images/cihlogo.png" alt="" class="md:h-[50px] md:w-[140px] h-[35px] w-[90px]">
@@ -71,9 +71,7 @@ UPDATE account
             <!-- navigation -->
             <nav class="nav font-semibold w-[100%] text-lg">
                 <ul class="flex items-center w-[100%] justify-center  ">
-                    <li class="p-4 border-b-2 border-green-500 border-opacity-0 hover:border-opacity-100 hover:text-green-500 duration-200 cursor-pointer active">
-                        <a href="">Home</a>
-                    </li>
+                  
                     <li class="p-4 border-b-2 border-green-500 border-opacity-0 hover:border-opacity-100 hover:text-green-500 duration-200 cursor-pointer">
                     <select name="clients" id="selectOption" class="outline-none rounded">
                     <option class="font-semibold text-lg" value="Banks">Locations</option>
@@ -83,7 +81,7 @@ UPDATE account
                         <option class="font-semibold text-lg" value="ATM">ATM</option>
                     </select>
                 </li>
-               
+            
                 <li class="p-4 border-b-2 border-green-500 border-opacity-0 hover:border-opacity-100 hover:text-green-500 duration-200 cursor-pointer">
                     <select name="clients" id="selectOptions1" class="outline-none rounded">
                     <option class="font-semibold text-lg" value="client">Operations</option>
@@ -93,14 +91,13 @@ UPDATE account
                         <option class="font-semibold text-lg" value="transactions">transactions</option>
                     </select>
                     </li>
+                    <li class="p-4 border-b-2 border-blue-500 border-opacity-0 hover:border-opacity-100 hover:text-blue-500 duration-200 cursor-pointer">
+                    <a href="index.php" class="bg-blue-400 hover:bg-blue-600 text-white font-bold py-2 px-4 border border-blue-600 rounded">Log Out</a>
+                    </li>
                 </ul>
             </nav>
             <!-- buttons --->
-            <a href="">
-                <svg class="h-8 p-1 hover:text-green-500 duration-200" aria-hidden="true" focusable="false" data-prefix="far" data-icon="search" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="svg-inline--fa fa-search fa-w-16 fa-9x">
-                    <path fill="currentColor" d="M508.5 468.9L387.1 347.5c-2.3-2.3-5.3-3.5-8.5-3.5h-13.2c31.5-36.5 50.6-84 50.6-136C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c52 0 99.5-19.1 136-50.6v13.2c0 3.2 1.3 6.2 3.5 8.5l121.4 121.4c4.7 4.7 12.3 4.7 17 0l22.6-22.6c4.7-4.7 4.7-12.3 0-17zM208 368c-88.4 0-160-71.6-160-160S119.6 48 208 48s160 71.6 160 160-71.6 160-160 160z" class=""></path>
-                </svg>
-            </a>
+         
         </header>
 
 
@@ -153,7 +150,7 @@ UPDATE account
                                
 
                             <td class='border-[2px] border-black border-solid '>
-                            <form action='addtransactions.php' method='post' class='height-[100%] cursor-pointer width-[100%] hover:bg-black bg-white hover:text-white text-black'>
+                            <form action='addtransactions.php' method='post' class='height-[80px] cursor-pointer w-[100%] hover:bg-blue-700 bg-blue-500 hover:text-white text-white '>
                             <input type='hidden' name='operation' value='" . $row["transactionId"] . "'>
                             <input type='hidden' name='transactionId' value='" . $row["transactionId"] . "'>
                             <input type='submit'  name='editing' value='Edit'>
@@ -161,7 +158,7 @@ UPDATE account
                         
                             </td>
                             <td class='border-[2px] border-black border-solid '>
-                            <form action='transactions.php' method='post' class='height-[100%] cursor-pointer width-[100%] hover:bg-black bg-white hover:text-white text-black'>
+                            <form action='transactions.php' method='post' class='height-[80px] cursor-pointer w-[100%] hover:bg-red-700 bg-red-500 hover:text-white text-white '>
                                 <input type='hidden' name='delete' value='" . $row["transactionId"] . "'>
                                 <input type='submit'  name='deletetransaction' value='Delete'>
                             </form>
@@ -201,7 +198,7 @@ UPDATE account
                                
 
                             <td class='border-[2px] border-black border-solid '>
-                            <form action='addtransactions.php' method='post' class='height-[100%] cursor-pointer width-[100%] hover:bg-black bg-white hover:text-white text-black'>
+                            <form action='addtransactions.php' method='post' class='height-[100%] cursor-pointer width-[100%] hover:bg-blue-700 bg-blue-500 hover:text-white text-black'>
                             <input type='hidden' name='operation' value='" . $row["transactionId"] . "'>
                             <input type='hidden' name='transactionid' value='" . $row["transactionId"] . "'>
                             <input type='submit'  name='editing' value='Edit'>
@@ -209,7 +206,7 @@ UPDATE account
                         
                             </td>
                             <td class='border-[2px] border-black border-solid '>
-                            <form action='transactions.php' method='post' class='height-[100%] cursor-pointer width-[100%] hover:bg-black bg-white hover:text-white text-black'>
+                            <form action='transactions.php' method='post' class='height-[80px] cursor-pointer w-[100%] hover:bg-red-700 bg-red-500 hover:text-white text-white '>
                                 <input type='hidden' name='delete' value='" . $row["transactionId"] . "'>
                                 <input type='submit'  name='deletetransaction' value='Delete'>
                             </form>
