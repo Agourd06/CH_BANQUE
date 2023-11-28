@@ -51,7 +51,7 @@ if (isset($_POST['deleteuser']) && isset($_POST['userId'])) {
 </head>
 
 <body>
-    <section class="min-h-[95vh] w-[100vw] bg-white bg-cover">
+    <section class="min-h-[95vh] w-[100vw] bg-gray-100 bg-cover">
     <header class="header sticky w-[100%] top-0 bg-white shadow-md flex items-center justify-between px-8 py-02 z-50 mb-[10vh]	">
             <!-- logo -->
             <a href="" class = "flex items-center font-bold	gap-[7px]">
@@ -75,7 +75,7 @@ if (isset($_POST['deleteuser']) && isset($_POST['userId'])) {
                 </li>
               
                 <li class="p-4 border-b-2 border-green-500 border-opacity-0 hover:border-opacity-100 hover:text-green-500 duration-200 cursor-pointer">
-                    <select name="clients" id="selectOptions" class="outline-none rounded">
+                    <select name="clients" id="selectOptions1" class="outline-none rounded">
                     <option class="font-semibold text-lg" value="client">Operations</option>
 
                         <option class="font-semibold text-lg" value="client">Users</option>
@@ -136,10 +136,10 @@ if (isset($_POST['deleteuser']) && isset($_POST['userId'])) {
                             <th class="border-[2px] border-black border-solid w-[15%]">User Name</th>
                             <th class="border-[2px] border-black border-solid w-[15%]">First Name</th>
                             <th class="border-[2px] border-black border-solid w-[15%]">Family Name</th>
-                            <th class="border-[2px] border-black border-solid w-[15%]">Accounts</th>
+                           
                             <th class="border-[2px] border-black border-solid w-[15%]">Editing</th>
                             <th class="border-[2px] border-black border-solid w-[15%]">Deleting</th>
-                          
+                            <th class="border-[2px] border-black border-solid w-[15%]">Accounts</th>
                         </tr>
                     </thead>';
                 while ($row = $result->fetch_assoc()) {
@@ -151,12 +151,7 @@ if (isset($_POST['deleteuser']) && isset($_POST['userId'])) {
                            
                             
                        
-                                <td class='border-[2px] border-black border-solid '>
-                            <form action='agences.php' method='post' class='height-[100%] cursor-pointer width-[100%] hover:bg-black bg-white hover:text-white text-black'>
-                                <input type='hidden' name='userid' value='" . $row["userid"] . "'>
-                                <input type='submit'  name='submit' value='Accounts'>
-                            </form>
-                        </td> 
+                       
                         
                         <td class='border-[2px] border-black border-solid '>
                             <form action='registre.php' method='post' class='height-[100%] cursor-pointer width-[100%] hover:bg-black bg-white hover:text-white text-black'>
@@ -175,6 +170,12 @@ if (isset($_POST['deleteuser']) && isset($_POST['userId'])) {
                        </form>
                        
                             </td>
+                            <td class='border-[2px] border-black border-solid '>
+                            <form action='agences.php' method='post' class='height-[100%] cursor-pointer width-[100%] hover:bg-black bg-white hover:text-white text-black'>
+                                <input type='hidden' name='userid' value='" . $row["userid"] . "'>
+                                <input type='submit'  name='submit' value='Show'>
+                            </form>
+                        </td> 
                         </tr>";
                 }
                 echo '</table>';
@@ -194,10 +195,10 @@ if (isset($_POST['deleteuser']) && isset($_POST['userId'])) {
                 <th class="border-[2px] border-black border-solid w-[15%]">User Name</th>
                 <th class="border-[2px] border-black border-solid w-[15%]">First Name</th>
                 <th class="border-[2px] border-black border-solid w-[15%]">Family Name</th>
-                <th class="border-[2px] border-black border-solid w-[15%]">Accounts</th>
+               
                 <th class="border-[2px] border-black border-solid w-[15%]">Editing</th>
                 <th class="border-[2px] border-black border-solid w-[15%]">Deleting</th>
-              
+                <th class="border-[2px] border-black border-solid w-[15%]">Accounts</th>
             </tr>
                     </thead>';
                 while ($row = $result2->fetch_assoc()) {
@@ -208,14 +209,7 @@ if (isset($_POST['deleteuser']) && isset($_POST['userId'])) {
                     <td class='border-[2px] border-black border-solid '>" . $row["familyName"] . "</td>
 
 
-                            <td class='border-[2px] border-black border-solid '>
-                            <form action='Accounts.php' method='post' class='height-[80px] cursor-pointer w-[100%] hover:bg-black bg-white hover:text-white text-black '>
-
-                                <input type='hidden' name='userid' value='" . $row["userId"] . "'>
-                                <input type='submit' name='submit'  value='Accounts'>
-                                </form>
-
-                                </td>
+                       
                             <td class='border-[2px] border-black border-solid '>
                             <form action='registre.php' method='post' class='height-[100%] cursor-pointer width-[100%] hover:bg-black bg-white hover:text-white text-black'>
                             <input type='hidden' name='operation' value='" . $row["userId"] . "'>
@@ -231,6 +225,14 @@ if (isset($_POST['deleteuser']) && isset($_POST['userId'])) {
                         </form>
                         
                         </td>
+                        <td class='border-[2px] border-black border-solid '>
+                        <form action='Accounts.php' method='post' class='height-[80px] cursor-pointer w-[100%] hover:bg-black bg-white hover:text-white text-black '>
+
+                            <input type='hidden' name='userid' value='" . $row["userId"] . "'>
+                            <input type='submit' name='submit'  value='Show'>
+                            </form>
+
+                            </td>
                         </tr>";
                 }
                 echo '</table>';
@@ -245,7 +247,7 @@ if (isset($_POST['deleteuser']) && isset($_POST['userId'])) {
     <footer class="text-center h-[5vh] text-white bg-black flex items-center justify-center">
         <h2>Copyright © 2030 Hashtag Developer. All Rights Reserved</h2>
     </footer>
-    <script src="main.js">
+    <script src="navbar.js">
 
     </script>
 

@@ -60,11 +60,11 @@ if (isset($_SESSION['username'])) {
 
                 <li class="p-4 border-b-2 outline-none border-green-500 border-opacity-0 hover:border-opacity-100 hover:text-green-500 duration-200 cursor-pointer">
                     <select name="clients" id="clientSelect" class="border-none outline-none rounded">
-                        <option class="font-semibold text-lg" value="client">Operations</option>
+                        <option class="font-semibold text-lg outline-none" value="client">Operations</option>
 
-                        <option class="font-semibold text-lg" value="clientinfo">My infos</option>
-                        <option class="font-semibold text-lg" value="clientaccounts">My accounts</option>
-                        <option class="font-semibold text-lg" value="clienttransactions">My Transactions</option>
+                        <option class="font-semibold text-lg outline-none" value="clientinfo">My infos</option>
+                        <option class="font-semibold text-lg outline-none" value="clientaccounts">My accounts</option>
+                        <option class="font-semibold text-lg outline-none" value="clienttransactions">My Transactions</option>
                     </select>
                 </li>
                 <li class="p-4 border-b-2 border-green-500 border-opacity-0 hover:border-opacity-100 hover:text-green-500 duration-200 cursor-pointer">

@@ -41,7 +41,7 @@ if (isset($_POST['deleteaccount']) && isset($_POST['delete'])) {
 </head>
 
 <body>
-    <section class="min-h-[95vh] w-[100vw] bg-white bg-cover">
+    <section class="min-h-[95vh] w-[100vw] bg-gray-100 bg-cover">
     <header class="header sticky w-[100%] top-0 bg-white shadow-md flex items-center justify-between px-8 py-02 z-50 mb-[10vh]	">
             <!-- logo -->
             <a href="" class = "flex items-center font-bold	gap-[7px]">
@@ -65,8 +65,8 @@ if (isset($_POST['deleteaccount']) && isset($_POST['delete'])) {
                 </li>
               
                 <li class="p-4 border-b-2 border-green-500 border-opacity-0 hover:border-opacity-100 hover:text-green-500 duration-200 cursor-pointer">
-                    <select name="clients" id="selectOptions" class="outline-none rounded">
-                    <option class="font-semibold text-lg" value="client">Operations</option>
+                    <select name="clients" id="selectOptions1" class="outline-none rounded">
+                    <option class="font-semibold text-lg" value="op">Operations</option>
 
                         <option class="font-semibold text-lg" value="client">Users</option>
                         <option class="font-semibold text-lg" value="accounts">accounts</option>
@@ -120,7 +120,7 @@ if (isset($_POST['deleteaccount']) && isset($_POST['delete'])) {
                             <th class="border-[2px] border-black border-solid w-[15%] ">Balance</th>
                             <th class="border-[2px] border-black border-solid w-[15%] ">Edit</th>
                             <th class="border-[2px] border-black border-solid w-[15%] ">Delete</th>
-                            <th class="border-[2px] border-black border-solid w-[15%] ">Transaction</th>
+                            <th class="border-[2px] border-black border-solid w-[15%] ">Transactions</th>
                         </tr>
                     </thead>';
                 while ($row = $result->fetch_assoc()) {
@@ -129,13 +129,7 @@ if (isset($_POST['deleteaccount']) && isset($_POST['delete'])) {
                             <td class='border-[2px] border-black border-solid '>" . $row["RIB"] . "  MAD</td>
                             <td class='border-[2px] border-black border-solid '> " . $row["balance"] . " </td>
 
-                            <td class='border-[2px] border-black border-solid '>
-                            <form action='transactions.php' method='post' class='height-[80px] cursor-pointer w-[100%] hover:bg-black bg-white hover:text-white text-black '>
-
-                                <input type='hidden' name='accountid' value='" . $row["accountId"] . "'>
-                                <input type='submit' name='submit'  value='Transactions'>
-                                </form>
-                                </td>
+                         
                                
 
                             <td class='border-[2px] border-black border-solid '>
@@ -152,6 +146,13 @@ if (isset($_POST['deleteaccount']) && isset($_POST['delete'])) {
                                 <input type='submit'  name='deleteaccount' value='Delete'>
                             </form>
                         </td>
+                        <td class='border-[2px] border-black border-solid '>
+                        <form action='transactions.php' method='post' class='height-[80px] cursor-pointer w-[100%] hover:bg-black bg-white hover:text-white text-black '>
+
+                            <input type='hidden' name='accountid' value='" . $row["accountId"] . "'>
+                            <input type='submit' name='submit'  value='Show'>
+                            </form>
+                            </td>
                         </tr>";
                 }
                 echo '</table>';
@@ -184,13 +185,7 @@ if (isset($_POST['deleteaccount']) && isset($_POST['delete'])) {
                     <td class='border-[2px] border-black border-solid '> " . $row["balance"] . "  MAD</td>
 
 
-                    <td class='border-[2px] border-black border-solid '>
-                    <form action='transactions.php' method='post' class='height-[80px] cursor-pointer w-[100%] hover:bg-black bg-white hover:text-white text-black '>
-
-                        <input type='hidden' name='accountid' value='" . $row["accountId"] . "'>
-                        <input type='submit' name='submit'  value='Transactions'>
-                        </form>
-                        </td>
+                    
                                
 
                             <td class='border-[2px] border-black border-solid '>
@@ -207,6 +202,14 @@ if (isset($_POST['deleteaccount']) && isset($_POST['delete'])) {
                                 <input type='submit'  name='deleteaccount' value='Delete'>
                             </form>
                         </td>
+
+                        <td class='border-[2px] border-black border-solid '>
+                    <form action='transactions.php' method='post' class='height-[80px] cursor-pointer w-[100%] hover:bg-black bg-white hover:text-white text-black '>
+
+                        <input type='hidden' name='accountid' value='" . $row["accountId"] . "'>
+                        <input type='submit' name='submit'  value='Show'>
+                        </form>
+                        </td>
                         </tr>";
                 }
                 echo '</table>';
@@ -221,7 +224,7 @@ if (isset($_POST['deleteaccount']) && isset($_POST['delete'])) {
     <footer class="text-center h-[5vh] text-white bg-black flex items-center justify-center">
         <h2>Copyright © 2030 Hashtag Developer. All Rights Reserved</h2>
     </footer>
-    <script src="main.js">
+    <script src="navbar.js">
 
     </script>
 

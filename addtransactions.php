@@ -53,7 +53,37 @@ if (isset($_POST['edited'])) {
     $conn->query($updateQuery);
     header('location: transactions.php');
 }
+if (isset($_POST['submit']) || isset($_POST['edited'])){
 
+    $operation = mysqli_real_escape_string($conn, $_POST['operation-type']);
+    $amount = mysqli_real_escape_string($conn, $_POST['amount']);
+
+    $accountId = $_POST['accountId'];
+
+if ($type == "credit") {
+
+    $update_amount = "
+        UPDATE account
+        SET balance =   balance + $amount
+        WHERE id = $accountId
+    ";
+
+    $updating = mysqli_query($conn, $update_amount);
+    echo "<script>window.alert('Balance Updated Succesfully & Transaction Added');</script>";
+
+} else {
+
+    $update_amount = "
+        UPDATE account
+        SET balance =   balance - $amount
+        WHERE id = $accountId
+    ";
+
+    $updating = mysqli_query($conn, $update_amount);
+    echo "<script>window.alert('Balance Updated Succesfully & Transaction Added');</script>";
+
+}
+}
 
 
 ?>

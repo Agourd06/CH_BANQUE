@@ -40,11 +40,11 @@
 
     </header>
 
-    <div class="text-[50px] text-gray-300 text-center">Contact Me</div>
+    <div class="text-[50px] text-gray-700 text-center">Contact Me</div>
     <section class="min-h-[70vh] flex items-center justify-center">
     
     
-    <form class=" w-4/5 lg:w-1/2 bg-white opacity-60 p-10  rounded-3xl">
+    <form class=" w-4/5 lg:w-1/2 bg-white text-gray-700 opacity-60 p-10  rounded-3xl">
         <div class="grid md:grid-cols-2 md:gap-6 ">
             <div class="relative z-0 w-full mb-6 group">
                 <input type="text" name="floating_first_name" id="floating_first_name"

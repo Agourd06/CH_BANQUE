@@ -35,7 +35,7 @@ if (isset($_POST['deleteATM']) && isset($_POST['delete'])) {
 </head>
 
 <body>
-    <section class="min-h-[95vh] w-[100vw] bg-white bg-cover">
+    <section class="min-h-[95vh] w-[100vw] bg-gray-100 bg-cover">
     <header class="header sticky w-[100%] top-0 bg-white shadow-md flex items-center justify-between px-8 py-02 z-50 mb-[10vh]	">
             <!-- logo -->
             <a href="" class = "flex items-center font-bold	gap-[7px]">
@@ -59,7 +59,7 @@ if (isset($_POST['deleteATM']) && isset($_POST['delete'])) {
                 </li>
                
                 <li class="p-4 border-b-2 border-green-500 border-opacity-0 hover:border-opacity-100 hover:text-green-500 duration-200 cursor-pointer">
-                    <select name="clients" id="selectOptions" class="outline-none rounded">
+                    <select name="clients" id="selectOptions1" class="outline-none rounded">
                     <option class="font-semibold text-lg" value="client">Operations</option>
 
                         <option class="font-semibold text-lg" value="client">Users</option>
@@ -201,7 +201,7 @@ if (isset($_POST['deleteATM']) && isset($_POST['delete'])) {
     <footer class="text-center h-[5vh] text-white bg-black flex items-center justify-center">
         <h2>Copyright © 2030 Hashtag Developer. All Rights Reserved</h2>
     </footer>
-    <script src="main.js">
+    <script src="navbar.js">
 
     </script>
 
